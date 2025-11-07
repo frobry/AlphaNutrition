@@ -26,6 +26,11 @@
   <title>AlphaNutrition - Votre Coach Nutrition Personnalisé</title>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaNutrition - Votre Coach Nutrition Personnalisé</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       box-sizing: border-box;
@@ -41,30 +46,141 @@
       padding: 0;
     }
     
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    
     .gradient-bg {
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
       position: relative;
+      min-height: 100%;
     }
     
     .gradient-bg::before {
       content: '';
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
+      width: 100%;
+      height: 100%;
       background: 
-        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.05) 0%, transparent 50%);
-      animation: float 20s ease-in-out infinite;
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.025) 0%, transparent 50%);
+      animation: floatGradient 20s ease-in-out infinite;
       pointer-events: none;
+      z-index: 0;
     }
     
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33% { transform: translateY(-20px) rotate(1deg); }
-      66% { transform: translateY(10px) rotate(-1deg); }
+    .gradient-bg::after {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.015) 0%, transparent 40%);
+      animation: rotateGradient 30s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .floating-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      animation: floatParticle 15s infinite ease-in-out;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    }
+    
+    .particle:nth-child(odd) {
+      background: rgba(255, 255, 255, 0.06);
+      animation-duration: 20s;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.12);
+    }
+    
+    .particle:nth-child(3n) {
+      background: rgba(255, 255, 255, 0.1);
+      animation-duration: 18s;
+      animation-direction: reverse;
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+    }
+    
+    @keyframes floatGradient {
+      0%, 100% { 
+        transform: translate(0px, 0px) scale(1);
+        opacity: 1;
+      }
+      25% { 
+        transform: translate(30px, -30px) scale(1.05);
+        opacity: 0.8;
+      }
+      50% { 
+        transform: translate(-20px, 20px) scale(0.95);
+        opacity: 1;
+      }
+      75% { 
+        transform: translate(20px, 30px) scale(1.02);
+        opacity: 0.9;
+      }
+    }
+    
+    @keyframes rotateGradient {
+      0% { 
+        transform: rotate(0deg) scale(1);
+      }
+      50% { 
+        transform: rotate(180deg) scale(1.1);
+      }
+      100% { 
+        transform: rotate(360deg) scale(1);
+      }
+    }
+    
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(100%) translateX(0px) rotate(0deg) scale(0);
+        opacity: 0;
+      }
+      5% {
+        opacity: 1;
+        transform: translateY(95%) translateX(10px) rotate(45deg) scale(1);
+      }
+      25% {
+        transform: translateY(70%) translateX(-30px) rotate(120deg) scale(1.2);
+      }
+      50% {
+        transform: translateY(45%) translateX(50px) rotate(200deg) scale(0.9);
+      }
+      75% {
+        transform: translateY(20%) translateX(-20px) rotate(280deg) scale(1.1);
+      }
+      95% {
+        opacity: 1;
+        transform: translateY(-5%) translateX(30px) rotate(340deg) scale(0.8);
+      }
+      100% {
+        transform: translateY(-10%) translateX(40px) rotate(360deg) scale(0);
+        opacity: 0;
+      }
+    }
+    
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
     }
     
     .feature-card {
@@ -85,15 +201,6 @@
     .faq-item:hover {
       background-color: rgba(255, 255, 255, 0.05);
       transform: translateX(5px);
-    }
-    
-    .animate-fade-in {
-      animation: fadeIn 0.8s ease-out;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     
     .bounce-emoji {
@@ -131,15 +238,33 @@
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="gradient-bg text-white">
-  <div class="min-h-full"><!-- Hero Section -->
-   <section class="px-6 py-20 text-center md:text-center text-left">
+ <body class="gradient-bg text-white"><!-- Particules flottantes -->
+  <div class="floating-particles" id="particles"></div><!-- Header avec navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800">
+   <nav class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between"><!-- Logo -->
+     <div class="text-2xl font-bold text-white">
+      AlphaNutrition
+     </div><!-- Menu desktop -->
+     <div class="hidden md:flex space-x-8"><a href="#accueil" class="nav-link text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="#benefices" class="nav-link text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="#fonctionnalites" class="nav-link text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="#faq" class="nav-link text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-colors">Contact</a>
+     </div><!-- Menu burger mobile --> <button id="menu-toggle" class="md:hidden text-white">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg></button>
+    </div><!-- Menu mobile -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700">
+     <div class="flex flex-col space-y-4 pt-4"><a href="#accueil" class="nav-link text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="#benefices" class="nav-link text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="#fonctionnalites" class="nav-link text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="#faq" class="nav-link text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-colors">Contact</a>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <div class="content-wrapper"><!-- Hero Section -->
+   <section id="accueil" class="px-6 py-32 text-left md:text-center" style="padding-top: 180px; padding-bottom: 120px;">
     <div class="max-w-4xl mx-auto">
      <h1 id="hero-title" class="text-5xl font-bold mb-6 leading-tight">Le plan alimentaire qui t'accompagne vers tes objectifs, 100% personnalisé.</h1>
      <p id="hero-subtitle" class="text-xl mb-10 text-gray-300 leading-relaxed">AlphaNutrition t'offre un suivi complet de tes repas, un scanner intelligent de produits, et un coaching nutritionnel accessible à tout moment.</p><button id="hero-cta" class="bg-gray-600 hover:bg-gray-700 text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg"> Télécharge l'application et commence ta transformation ! </button>
     </div>
    </section><!-- Benefits Section -->
-   <section class="px-6 py-16 bg-black bg-opacity-30">
+   <section id="benefices" class="px-6 py-40 bg-black bg-opacity-30">
     <div class="max-w-6xl mx-auto">
      <div class="grid md:grid-cols-3 gap-8"><!-- Benefit 1 -->
       <div class="feature-card bg-gray-900 bg-opacity-50 p-8 rounded-3xl border border-gray-700 scroll-reveal">
@@ -166,9 +291,9 @@
      </div>
     </div>
    </section><!-- Features Section -->
-   <section class="px-6 py-16">
+   <section id="fonctionnalites" class="px-6 py-40">
     <div class="max-w-6xl mx-auto">
-     <h2 id="features-title" class="text-4xl font-bold text-center md:text-center text-left mb-12 scroll-reveal">Fonctionnalités principales</h2>
+     <h2 id="features-title" class="text-4xl font-bold text-left md:text-center mb-12 scroll-reveal">Fonctionnalités principales</h2>
      <div class="grid md:grid-cols-2 gap-6">
       <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal"><span class="text-3xl bounce-emoji">✅</span>
        <div>
@@ -177,7 +302,7 @@
       </div>
       <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal scroll-reveal-delay-1"><span class="text-3xl bounce-emoji">📅</span>
        <div>
-        <h4 class="font-semibold text-lg mb-2">Plans alimentaires personnalisés répartis sur 4 semaines</h4>
+        <h4 class="font-semibold text-lg mb-2">Plans alimentaires personnalisés répartis sur 4 à 6 semaines</h4>
        </div>
       </div>
       <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal scroll-reveal-delay-2"><span class="text-3xl bounce-emoji">🍽️</span>
@@ -208,17 +333,17 @@
      </div>
     </div>
    </section><!-- Trust Section -->
-   <section class="px-6 py-16 bg-gray-900 bg-opacity-20">
-    <div class="max-w-4xl mx-auto text-center md:text-center text-left scroll-reveal">
+   <section class="px-6 py-40 bg-black bg-opacity-10">
+    <div class="max-w-4xl mx-auto text-left md:text-center scroll-reveal">
      <div class="text-5xl mb-6 bounce-emoji">
       🛡️
      </div>
      <p id="trust-text" class="text-xl leading-relaxed text-gray-200">AlphaNutrition est conçue par des experts en nutrition et intelligence artificielle. Tes données sont protégées avec la plus grande rigueur. L'application est entièrement pensée pour répondre aux besoins des utilisateurs français, avec sérieux et professionnalisme.</p>
     </div>
    </section><!-- FAQ Section -->
-   <section class="px-6 py-16">
+   <section id="faq" class="px-6 py-40">
     <div class="max-w-4xl mx-auto">
-     <h2 id="faq-title" class="text-4xl font-bold text-center md:text-center text-left mb-12 scroll-reveal">Questions fréquentes</h2>
+     <h2 id="faq-title" class="text-4xl font-bold text-left md:text-center mb-12 scroll-reveal">Questions fréquentes</h2>
      <div class="space-y-6">
       <div class="faq-item p-6 bg-gray-900 bg-opacity-40 rounded-2xl border border-gray-800 scroll-reveal">
        <h3 class="font-bold text-xl mb-3 text-gray-300">Puis-je utiliser AlphaNutrition si j'ai des allergies ?</h3>
@@ -239,10 +364,10 @@
      </div>
     </div>
    </section><!-- Final CTA Section -->
-   <section class="px-6 py-20 text-center md:text-center text-left bg-gradient-to-r from-gray-800 to-gray-900">
+   <section id="contact" class="px-6 py-40 text-left md:text-center bg-black bg-opacity-50">
     <div class="max-w-4xl mx-auto">
      <h2 class="text-4xl font-bold mb-6">Prêt à transformer ton alimentation ?</h2>
-     <p id="final-offer-text" class="text-xl mb-10 text-gray-200">Abonne-toi simplement via l'application, sans engagement, et profite d'un accompagnement personnalisé au quotidien.</p><button id="final-cta-button" class="bg-white text-gray-900 hover:bg-gray-100 font-bold px-10 py-5 rounded-full text-xl transition-colors duration-300 shadow-2xl"> Télécharge AlphaNutrition </button>
+     <p id="final-offer-text" class="text-xl mb-10 text-gray-200">Abonne-toi simplement via l'application, sans engagement, et profite d'un accompagnement personnalisé au quotidien.</p><button id="final-cta-button" class="bg-gray-700 text-white hover:bg-gray-600 font-bold px-10 py-5 rounded-full text-xl transition-colors duration-300 shadow-2xl border border-gray-600"> Télécharge AlphaNutrition </button>
     </div>
    </section><!-- Footer -->
    <footer class="px-6 py-8 text-center text-gray-500 text-sm border-t border-gray-800">
@@ -263,7 +388,7 @@
       features_title: "Fonctionnalités principales",
       trust_text: "AlphaNutrition est conçue par des experts en nutrition et intelligence artificielle. Tes données sont protégées avec la plus grande rigueur. L'application est entièrement pensée pour répondre aux besoins des utilisateurs français, avec sérieux et professionnalisme.",
       faq_title: "Questions fréquentes",
-      final_offer_text: "Abonne-toi simplement via l'application, sans engagement, et profite d'un accompagnement personnalisé au quotidien.",
+      final_offer_text: "Abonne-toi simplement via l'application et profite d'un accompagnement personnalisé au quotidien.",
       final_cta_button: "Télécharge AlphaNutrition",
       background_color: "#0a0a0a",
       surface_color: "#1a1a1a",
@@ -301,7 +426,7 @@
       heroCta.style.backgroundColor = primaryActionColor;
       
       const finalCta = document.getElementById('final-cta-button');
-      finalCta.style.color = primaryActionColor;
+      finalCta.style.backgroundColor = primaryActionColor;
 
       const benefitTitles = document.querySelectorAll('[id^="benefit-"][id$="-title"]');
       benefitTitles.forEach(title => {
@@ -388,11 +513,68 @@
       ]);
     }
 
+    // Menu burger toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scroll function
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+      
+      const headerHeight = 80;
+      const sectionTop = section.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: sectionTop,
+        behavior: 'smooth'
+      });
+      
+      // Fermer le menu mobile
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+    }
+
+    // Attacher les événements de navigation
+    document.querySelectorAll('.nav-link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        const sectionId = href.replace('#', '');
+        scrollToSection(sectionId);
+      });
+    });
+
+    // Créer les particules flottantes
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 40;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 8 + 3;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
     // Animation au scroll
     function revealOnScroll() {
       const reveals = document.querySelectorAll('.scroll-reveal');
       
-      reveals.forEach(element => {
+      reveals.forEach(function(element) {
         const windowHeight = window.innerHeight;
         const elementTop = element.getBoundingClientRect().top;
         const elementVisible = 150;
@@ -404,8 +586,14 @@
     }
     
     window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    
+    // Initialisation
+    window.addEventListener('load', function() {
+      revealOnScroll();
+      createParticles();
+    });
 
+    // Initialiser le SDK
     if (window.elementSdk) {
       window.elementSdk.init({
         defaultConfig,
@@ -415,5 +603,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'999e3e9874086f5a',t:'MTc2MjM2NTU2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99af3d0c21217029',t:'MTc2MjU0Mzc1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
