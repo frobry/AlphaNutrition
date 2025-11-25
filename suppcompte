@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="fr">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suppression de compte - AlphaNutrition</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      position: relative;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .gradient-bg::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.045) 0%, transparent 50%);
+      animation: floatGradient 20s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    @keyframes floatGradient {
+      0%, 100% { 
+        transform: translate(0px, 0px) scale(1);
+        opacity: 1;
+      }
+      25% { 
+        transform: translate(30px, -30px) scale(1.05);
+        opacity: 0.8;
+      }
+      50% { 
+        transform: translate(-20px, 20px) scale(0.95);
+        opacity: 1;
+      }
+      75% { 
+        transform: translate(20px, 30px) scale(1.02);
+        opacity: 0.9;
+      }
+    }
+    
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .main-content {
+      flex: 1;
+      padding-top: 120px;
+      padding-bottom: 60px;
+    }
+    
+    .info-card {
+      margin-bottom: 30px;
+      padding: 30px;
+      background: rgba(26, 26, 26, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
+    }
+    
+    .warning-card {
+      background: rgba(220, 38, 38, 0.1);
+      border: 1px solid rgba(220, 38, 38, 0.3);
+    }
+    
+    .info-card h2 {
+      color: #9ca3af;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .info-card p, .info-card li {
+      color: #e5e7eb;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    
+    .info-card ul {
+      list-style-type: disc;
+      margin-left: 25px;
+      margin-top: 10px;
+    }
+    
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: #4b5563;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-right: 12px;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="gradient-bg text-white"><!-- Header avec navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800">
+   <nav class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between"><!-- Logo -->
+     <div class="text-2xl font-bold text-white">
+      AlphaNutrition
+     </div><!-- Menu desktop -->
+     <div class="hidden md:flex space-x-8"><a href="/index.html" class="text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="/index.html#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="/index.html#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="/index.html#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
+     </div><!-- Menu burger mobile --> <button id="menu-toggle" class="md:hidden text-white">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg></button>
+    </div><!-- Menu mobile -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700">
+     <div class="flex flex-col space-y-4 pt-4"><a href="/index.html" class="text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="/index.html#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="/index.html#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="/index.html#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <div class="content-wrapper"><!-- Main Content -->
+   <main class="main-content px-6">
+    <div class="max-w-4xl mx-auto"><!-- En-tête -->
+     <div class="text-center mb-12">
+      <div class="text-6xl mb-6">
+       🗑️
+      </div>
+      <h1 id="page-title" class="text-5xl font-bold mb-4">Suppression de compte</h1>
+      <p id="intro-text" class="text-gray-300 text-lg max-w-2xl mx-auto">Nous sommes désolés de vous voir partir. Cette page vous explique comment supprimer définitivement votre compte AlphaNutrition et toutes vos données personnelles.</p>
+     </div><!-- Avertissement -->
+     <div class="info-card warning-card">
+      <h2 class="text-red-400">⚠️ Attention : Action irréversible</h2>
+      <p>La suppression de votre compte est <strong>définitive et irréversible</strong>. Une fois votre compte supprimé, vous ne pourrez plus :</p>
+      <ul>
+       <li>Accéder à vos plans alimentaires personnalisés</li>
+       <li>Consulter votre historique de repas et de progression</li>
+       <li>Récupérer vos données nutritionnelles</li>
+       <li>Utiliser votre abonnement en cours</li>
+      </ul>
+      <p class="mt-4"><strong>Veuillez réfléchir attentivement avant de procéder à cette demande.</strong></p>
+     </div><!-- Comment faire la demande -->
+     <div class="info-card">
+      <h2>📧 Comment demander la suppression de votre compte</h2>
+      <p id="email-instruction">Pour supprimer votre compte, envoyez-nous un email à l'adresse suivante :</p>
+      <div class="text-center my-6"><a href="mailto:app.alphagym@gmail.com?subject=Demande de suppression de compte" class="text-2xl font-semibold text-gray-100 hover:text-white transition-colors inline-block"> app.alphagym@gmail.com </a>
+      </div>
+      <p><strong>Objet de l'email :</strong> "Demande de suppression de compte"</p>
+      <p class="mt-4"><strong>Informations à inclure dans votre email :</strong></p>
+      <ul>
+       <li>Votre adresse email associée au compte</li>
+       <li>Votre nom complet (tel qu'enregistré dans l'application)</li>
+       <li>La confirmation que vous souhaitez supprimer définitivement votre compte</li>
+      </ul>
+     </div><!-- Processus de traitement -->
+     <div class="info-card">
+      <h2>⏱️ Délai de traitement</h2>
+      <p id="processing-time">Votre demande sera traitée dans un délai maximum de <strong>7 jours ouvrés</strong> à compter de la réception de votre email.</p>
+      <p class="mt-4"><strong>Étapes du processus :</strong></p>
+      <div class="mt-4 space-y-4">
+       <div class="flex items-start"><span class="step-number">1</span>
+        <div>
+         <p><strong>Réception de votre demande</strong></p>
+         <p class="text-gray-400">Nous recevons votre email et vérifions votre identité</p>
+        </div>
+       </div>
+       <div class="flex items-start"><span class="step-number">2</span>
+        <div>
+         <p><strong>Confirmation par email</strong></p>
+         <p class="text-gray-400">Nous vous envoyons un email de confirmation pour valider votre demande</p>
+        </div>
+       </div>
+       <div class="flex items-start"><span class="step-number">3</span>
+        <div>
+         <p><strong>Suppression des données</strong></p>
+         <p class="text-gray-400">Nous procédons à la suppression définitive de votre compte et de vos données</p>
+        </div>
+       </div>
+       <div class="flex items-start"><span class="step-number">4</span>
+        <div>
+         <p><strong>Notification finale</strong></p>
+         <p class="text-gray-400">Nous vous envoyons un email confirmant la suppression complète</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Données supprimées -->
+     <div class="info-card">
+      <h2>🗂️ Données qui seront supprimées</h2>
+      <p>Lors de la suppression de votre compte, les données suivantes seront <strong>définitivement effacées</strong> :</p>
+      <ul>
+       <li>Vos informations de profil (nom, email, date de naissance, etc.)</li>
+       <li>Vos données de santé (poids, taille, objectifs, allergies, etc.)</li>
+       <li>Votre historique de repas et photos de plats</li>
+       <li>Vos plans alimentaires personnalisés</li>
+       <li>Vos statistiques et données de progression</li>
+       <li>Vos préférences et paramètres d'application</li>
+       <li>Votre historique de conversations avec le chat IA</li>
+       <li>Tous les produits scannés et enregistrés</li>
+      </ul>
+     </div><!-- Données conservées -->
+     <div class="info-card">
+      <h2>📋 Données conservées (obligations légales)</h2>
+      <p>Conformément aux obligations légales et comptables, certaines données peuvent être conservées pendant une durée limitée :</p>
+      <ul>
+       <li><strong>Données de facturation :</strong> conservées pendant 10 ans (obligation légale française)</li>
+       <li><strong>Données de transaction :</strong> conservées pour la prévention de la fraude et le respect des obligations fiscales</li>
+       <li><strong>Logs de sécurité :</strong> conservés pendant 1 an maximum pour des raisons de sécurité</li>
+      </ul>
+      <p class="mt-4">Ces données sont stockées de manière sécurisée et ne sont accessibles qu'au personnel autorisé dans le cadre strict de leurs obligations légales.</p>
+     </div><!-- Conséquences -->
+     <div class="info-card">
+      <h2>💡 Conséquences de la suppression</h2>
+      <ul>
+       <li><strong>Abonnement :</strong> Si vous avez un abonnement actif, il sera immédiatement résilié sans remboursement au prorata</li>
+       <li><strong>Recréation de compte :</strong> Vous pourrez créer un nouveau compte à tout moment, mais vous repartirez de zéro (aucune donnée ne sera récupérée)</li>
+       <li><strong>Emails :</strong> Vous ne recevrez plus aucune communication de notre part (sauf emails liés à la suppression)</li>
+      </ul>
+     </div><!-- Alternative -->
+     <div class="info-card">
+      <h2>🤔 Vous hésitez ?</h2>
+      <p>Si vous souhaitez simplement faire une pause, vous pouvez :</p>
+      <ul>
+       <li><strong>Désactiver les notifications</strong> dans les paramètres de l'application</li>
+       <li><strong>Résilier votre abonnement</strong> tout en conservant votre compte gratuit</li>
+       <li><strong>Nous contacter</strong> pour discuter de vos préoccupations</li>
+      </ul>
+      <p class="mt-4">Notre équipe est à votre écoute : <a href="mailto:app.alphagym@gmail.com" class="text-gray-300 hover:text-white underline">app.alphagym@gmail.com</a></p>
+     </div><!-- Contact -->
+     <div class="info-card">
+      <h2>📞 Besoin d'aide ?</h2>
+      <p>Si vous avez des questions concernant la suppression de votre compte ou si vous rencontrez des difficultés, n'hésitez pas à nous contacter :</p>
+      <div class="mt-4">
+       <p><strong>Email :</strong> <a href="mailto:app.alphagym@gmail.com" class="text-gray-300 hover:text-white underline">app.alphagym@gmail.com</a></p>
+       <p><strong>Délai de réponse :</strong> 24 à 48 heures</p>
+      </div>
+     </div>
+    </div>
+   </main><!-- Footer -->
+   <footer class="px-6 py-8 text-center text-gray-500 text-sm border-t border-gray-800">
+    <p>© 2025 AlphaNutrition. Tous droits réservés.</p>
+    <p class="mt-4"><a href="/confidentialite.html" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors underline">Confidentialité de l'application</a></p>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      page_title: "Suppression de compte",
+      intro_text: "Nous sommes désolés de vous voir partir. Cette page vous explique comment supprimer définitivement votre compte AlphaNutrition et toutes vos données personnelles.",
+      email_instruction: "Pour supprimer votre compte, envoyez-nous un email à l'adresse suivante :",
+      processing_time: "Votre demande sera traitée dans un délai maximum de 7 jours ouvrés à compter de la réception de votre email.",
+      background_color: "#0a0a0a",
+      surface_color: "#1a1a1a",
+      text_color: "#ffffff"
+    };
+
+    async function onConfigChange(config) {
+      document.getElementById('page-title').textContent = config.page_title || defaultConfig.page_title;
+      document.getElementById('intro-text').textContent = config.intro_text || defaultConfig.intro_text;
+      document.getElementById('email-instruction').textContent = config.email_instruction || defaultConfig.email_instruction;
+      document.getElementById('processing-time').innerHTML = config.processing_time || defaultConfig.processing_time;
+
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+
+      document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${surfaceColor} 100%)`;
+      document.body.style.color = textColor;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["page_title", config.page_title || defaultConfig.page_title],
+        ["intro_text", config.intro_text || defaultConfig.intro_text],
+        ["email_instruction", config.email_instruction || defaultConfig.email_instruction],
+        ["processing_time", config.processing_time || defaultConfig.processing_time]
+      ]);
+    }
+
+    // Menu burger toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Initialiser le SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a40b7700083698a',t:'MTc2NDA2OTIwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
