@@ -28,7 +28,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlphaNutrition - Votre Coach Nutrition Personnalisé</title>
+  <title>AlphaNutrition - Plan alimentaire personnalisé</title>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -55,6 +55,7 @@
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
       position: relative;
       min-height: 100%;
+      width: 100%;
     }
     
     .gradient-bg::before {
@@ -71,49 +72,6 @@
       animation: floatGradient 20s ease-in-out infinite;
       pointer-events: none;
       z-index: 0;
-    }
-    
-    .gradient-bg::after {
-      content: '';
-      position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: 
-        radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.04) 0%, transparent 40%),
-        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.035) 0%, transparent 40%);
-      animation: rotateGradient 30s linear infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    .floating-particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-    
-    .particle {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      animation: matrixFall linear infinite;
-      box-shadow: 0 0 3px rgba(255, 255, 255, 0.05);
-    }
-    
-    .particle:nth-child(2n) {
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 2px rgba(255, 255, 255, 0.04);
-    }
-    
-    .particle:nth-child(3n) {
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 4px rgba(255, 255, 255, 0.06);
     }
     
     @keyframes floatGradient {
@@ -135,295 +93,257 @@
       }
     }
     
-    @keyframes rotateGradient {
-      0% { 
-        transform: rotate(0deg) scale(1);
-      }
-      50% { 
-        transform: rotate(180deg) scale(1.1);
-      }
-      100% { 
-        transform: rotate(360deg) scale(1);
-      }
-    }
-    
-    @keyframes matrixFall {
-      0% {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(calc(100% + 100px));
-        opacity: 0;
-      }
-    }
-    
     .content-wrapper {
       position: relative;
       z-index: 10;
+      width: 100%;
     }
     
-    .feature-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .benefit-card {
+      background: rgba(26, 26, 26, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
       backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    .feature-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    }
+    
+    .feature-item {
+      background: rgba(26, 26, 26, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-item:hover {
+      background: rgba(26, 26, 26, 0.5);
+      border-color: rgba(255, 255, 255, 0.15);
     }
     
     .faq-item {
+      background: rgba(26, 26, 26, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
       transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
     }
     
     .faq-item:hover {
-      background-color: rgba(255, 255, 255, 0.05);
-      transform: translateX(5px);
-    }
-    
-    .bounce-emoji {
-      animation: bounce 2s ease-in-out infinite;
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    .scroll-reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease-out;
-    }
-    
-    .scroll-reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .scroll-reveal-delay-1 {
-      transition-delay: 0.1s;
-    }
-    
-    .scroll-reveal-delay-2 {
-      transition-delay: 0.2s;
-    }
-    
-    .scroll-reveal-delay-3 {
-      transition-delay: 0.3s;
+      background: rgba(26, 26, 26, 0.6);
+      border-color: rgba(255, 255, 255, 0.2);
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="gradient-bg text-white"><!-- Particules flottantes -->
-  <div class="floating-particles" id="particles"></div><!-- Header avec navigation -->
+ <body class="gradient-bg text-white"><!-- Header avec navigation -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800">
    <nav class="max-w-6xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between"><!-- Logo -->
      <div class="text-2xl font-bold text-white">
       AlphaNutrition
      </div><!-- Menu desktop -->
-     <div class="hidden md:flex space-x-8"><a href="#accueil" class="nav-link text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="#benefices" class="nav-link text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="#fonctionnalites" class="nav-link text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="#faq" class="nav-link text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
+     <div class="hidden md:flex space-x-8"><a href="#accueil" class="text-white font-semibold transition-colors">Accueil</a> <a href="#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
      </div><!-- Menu burger mobile --> <button id="menu-toggle" class="md:hidden text-white">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg></button>
     </div><!-- Menu mobile -->
     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700">
-     <div class="flex flex-col space-y-4 pt-4"><a href="#accueil" class="nav-link text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="#benefices" class="nav-link text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="#fonctionnalites" class="nav-link text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="#faq" class="nav-link text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
+     <div class="flex flex-col space-y-4 pt-4"><a href="#accueil" class="text-white font-semibold transition-colors">Accueil</a> <a href="#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
      </div>
     </div>
    </nav>
   </header>
   <div class="content-wrapper"><!-- Hero Section -->
-   <section id="accueil" class="px-6 py-32 text-left md:text-center" style="padding-top: 180px; padding-bottom: 120px;">
-    <div class="max-w-4xl mx-auto">
-     <h1 id="hero-title" class="text-5xl font-bold mb-6 leading-tight">Le plan alimentaire qui t'accompagne vers tes objectifs, 100% personnalisé.</h1>
-     <p id="hero-subtitle" class="text-xl mb-10 text-gray-300 leading-relaxed">AlphaNutrition t'offre un suivi complet de tes repas, un scanner intelligent de produits, et un coaching nutritionnel accessible à tout moment.</p><button id="hero-cta" class="bg-gray-600 hover:bg-gray-700 text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg"> Télécharge l'application et commence ta transformation ! </button>
+   <section id="accueil" class="pt-32 pb-20 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+     <h1 id="hero-title" class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Le plan alimentaire qui t'accompagne vers tes objectifs<br><span class="text-gray-300">100% personnalisé</span></h1>
+     <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">AlphaNutrition t'offre un suivi complet de tes repas, un scanner intelligent de produits et un coaching nutritionnel accessible à tout moment.</p><a href="#" id="cta-button" class="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-full hover:bg-gray-200 transition-all transform hover:scale-105"> Télécharger l'application </a>
     </div>
-   </section><!-- Benefits Section -->
-   <section id="benefices" class="px-6 py-40 bg-black bg-opacity-30">
+   </section><!-- Section Bénéfices -->
+   <section id="benefices" class="py-20 px-6">
     <div class="max-w-6xl mx-auto">
-     <div class="grid md:grid-cols-3 gap-8"><!-- Benefit 1 -->
-      <div class="feature-card bg-gray-900 bg-opacity-50 p-8 rounded-3xl border border-gray-700 scroll-reveal">
-       <div class="text-5xl mb-4 bounce-emoji">
-        🎯
+     <div class="grid md:grid-cols-3 gap-8"><!-- Bénéfice 1 -->
+      <div class="benefit-card">
+       <div class="text-5xl mb-4">
+        📋
        </div>
-       <h3 id="benefit-1-title" class="text-2xl font-bold mb-4 text-gray-300">Un plan alimentaire sur mesure</h3>
-       <p id="benefit-1-text" class="text-gray-300 leading-relaxed">Chaque profil est unique. Ton plan s'adapte précisément à tes besoins et objectifs, pour une remise en forme saine et efficace.</p>
-      </div><!-- Benefit 2 -->
-      <div class="feature-card bg-gray-900 bg-opacity-50 p-8 rounded-3xl border border-gray-700 scroll-reveal scroll-reveal-delay-1">
-       <div class="text-5xl mb-4 bounce-emoji">
+       <h3 class="text-2xl font-bold mb-4">Un plan alimentaire sur mesure</h3>
+       <p class="text-gray-300 leading-relaxed">Chaque profil est unique, ton plan s'adapte précisément à tes besoins et objectifs pour une remise en forme saine et efficace.</p>
+      </div><!-- Bénéfice 2 -->
+      <div class="benefit-card">
+       <div class="text-5xl mb-4">
         📊
        </div>
-       <h3 id="benefit-2-title" class="text-2xl font-bold mb-4 text-gray-300">Un espace de suivi simple et motivant</h3>
-       <p id="benefit-2-text" class="text-gray-300 leading-relaxed">Garde un œil sur ce que tu manges, enregistre facilement tes repas et suis tes progrès jour après jour.</p>
-      </div><!-- Benefit 3 -->
-      <div class="feature-card bg-gray-900 bg-opacity-50 p-8 rounded-3xl border border-gray-700 scroll-reveal scroll-reveal-delay-2">
-       <div class="text-5xl mb-4 bounce-emoji">
-        🔍
+       <h3 class="text-2xl font-bold mb-4">Un espace de suivi simple et motivant</h3>
+       <p class="text-gray-300 leading-relaxed">Garde un œil sur ce que tu manges, enregistre facilement tes repas et suis tes progrès jour après jour.</p>
+      </div><!-- Bénéfice 3 -->
+      <div class="benefit-card">
+       <div class="text-5xl mb-4">
+        📱
        </div>
-       <h3 id="benefit-3-title" class="text-2xl font-bold mb-4 text-gray-300">Un scanner santé révolutionnaire</h3>
-       <p id="benefit-3-text" class="text-gray-300 leading-relaxed">Avant d'acheter, scanne tes produits pour vérifier leur qualité nutritionnelle et faire les meilleurs choix pour ton corps.</p>
+       <h3 class="text-2xl font-bold mb-4">Un scanner santé révolutionnaire</h3>
+       <p class="text-gray-300 leading-relaxed">Avant d'acheter, scanne tes produits pour vérifier leur qualité nutritionnelle et faire les meilleurs choix pour ton corps.</p>
       </div>
      </div>
     </div>
-   </section><!-- Features Section -->
-   <section id="fonctionnalites" class="px-6 py-40">
+   </section><!-- Section Fonctionnalités -->
+   <section id="fonctionnalites" class="py-20 px-6 bg-black bg-opacity-30">
     <div class="max-w-6xl mx-auto">
-     <h2 id="features-title" class="text-4xl font-bold text-left md:text-center mb-12 scroll-reveal">Fonctionnalités principales</h2>
-     <div class="grid md:grid-cols-2 gap-6">
-      <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal"><span class="text-3xl bounce-emoji">✅</span>
-       <div>
-        <h4 class="font-semibold text-lg mb-2">Questionnaire détaillé pour une anamnèse complète</h4>
+     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Fonctionnalités principales</h2>
+     <div class="grid md:grid-cols-2 gap-6 mb-16">
+      <div class="feature-item">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         ✅
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold mb-2">Questionnaire détaillé pour une anamnèse complète</h4>
+        </div>
        </div>
       </div>
-      <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal scroll-reveal-delay-1"><span class="text-3xl bounce-emoji">📅</span>
-       <div>
-        <h4 class="font-semibold text-lg mb-2">Plans alimentaires personnalisés répartis sur 4 semaines</h4>
+      <div class="feature-item">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         📅
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold mb-2">Plans alimentaires personnalisés répartis sur 4 semaines</h4>
+        </div>
        </div>
       </div>
-      <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal scroll-reveal-delay-2"><span class="text-3xl bounce-emoji">🍽️</span>
-       <div>
-        <h4 class="font-semibold text-lg mb-2">Suivi des repas intuitif et visuel</h4>
+      <div class="feature-item">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         🍽️
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold mb-2">Suivi des repas intuitif et visuel</h4>
+        </div>
        </div>
       </div>
-      <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal scroll-reveal-delay-3"><span class="text-3xl bounce-emoji">📱</span>
-       <div>
-        <h4 class="font-semibold text-lg mb-2">Scanner code-barres pour analyser rapidement vos achats</h4>
+      <div class="feature-item">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         📱
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold mb-2">Scanner code-barres pour analyser rapidement vos achats</h4>
+        </div>
        </div>
       </div>
-      <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal"><span class="text-3xl bounce-emoji">📸</span>
-       <div>
-        <h4 class="font-semibold text-lg mb-2">Analyse IA de vos repas par photo, simple et rapide</h4>
+      <div class="feature-item">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         📸
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold mb-2">Analyse IA de vos repas par photo, simple et rapide</h4>
+        </div>
        </div>
       </div>
-      <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-2xl scroll-reveal scroll-reveal-delay-1"><span class="text-3xl bounce-emoji">💬</span>
-       <div>
-        <h4 class="font-semibold text-lg mb-2">Chat IA pour un accompagnement nutritionnel et bienveillant</h4>
+      <div class="feature-item">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         💬
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold mb-2">Chat IA pour un accompagnement nutritionnel et bienveillant</h4>
+        </div>
        </div>
       </div>
-      <div class="flex items-start space-x-4 p-6 bg-gray-900 bg-opacity-30 rounded-lg md:col-span-2 scroll-reveal scroll-reveal-delay-2"><span class="text-3xl bounce-emoji">📖</span>
-       <div>
-        <h4 class="font-semibold text-lg mb-2">Bibliothèque riche de recettes adaptées à tous les objectifs</h4>
+      <div class="feature-item">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         📖
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold mb-2">Bibliothèque riche de recettes adaptées à tous les objectifs</h4>
+        </div>
+       </div>
+      </div>
+      <div class="feature-item">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         🛡️
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold mb-2">Données protégées avec la plus grande rigueur</h4>
+        </div>
        </div>
       </div>
      </div>
-    </div>
-   </section><!-- Trust Section -->
-   <section class="px-6 py-40 bg-black bg-opacity-10">
-    <div class="max-w-4xl mx-auto text-left md:text-center scroll-reveal">
-     <div class="text-5xl mb-6 bounce-emoji">
-      🛡️
+     <div class="text-center max-w-3xl mx-auto">
+      <p class="text-lg text-gray-300 leading-relaxed">AlphaNutrition est conçue par des experts en nutrition et intelligence artificielle. Tes données sont protégées avec la plus grande rigueur. L'application est entièrement pensée pour répondre aux besoins des utilisateurs français, avec sérieux et professionnalisme.</p>
      </div>
-     <p id="trust-text" class="text-xl leading-relaxed text-gray-200">AlphaNutrition est conçue par des experts en nutrition et intelligence artificielle. Tes données sont protégées avec la plus grande rigueur. L'application est entièrement pensée pour répondre aux besoins des utilisateurs français, avec sérieux et professionnalisme.</p>
     </div>
-   </section><!-- FAQ Section -->
-   <section id="faq" class="px-6 py-40">
+   </section><!-- Section FAQ -->
+   <section id="faq" class="py-20 px-6">
     <div class="max-w-4xl mx-auto">
-     <h2 id="faq-title" class="text-4xl font-bold text-left md:text-center mb-12 scroll-reveal">Questions fréquentes</h2>
+     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Questions fréquentes</h2>
      <div class="space-y-6">
-      <div class="faq-item p-6 bg-gray-900 bg-opacity-40 rounded-2xl border border-gray-800 scroll-reveal">
-       <h3 class="font-bold text-xl mb-3 text-gray-300">Puis-je utiliser AlphaNutrition si j'ai des allergies ?</h3>
+      <div class="faq-item">
+       <h3 class="text-xl font-bold mb-3">Puis-je utiliser AlphaNutrition si j'ai des allergies ?</h3>
        <p class="text-gray-300">Oui, l'application prend en compte vos restrictions alimentaires pour vous proposer des alternatives adaptées.</p>
       </div>
-      <div class="faq-item p-6 bg-gray-900 bg-opacity-40 rounded-2xl border border-gray-800 scroll-reveal scroll-reveal-delay-1">
-       <h3 class="font-bold text-xl mb-3 text-gray-300">Dois-je peser mes aliments ?</h3>
+      <div class="faq-item">
+       <h3 class="text-xl font-bold mb-3">Dois-je peser mes aliments ?</h3>
        <p class="text-gray-300">Non, le suivi est pensé pour être simple, sans contrainte inutile.</p>
       </div>
-      <div class="faq-item p-6 bg-gray-900 bg-opacity-40 rounded-2xl border border-gray-800 scroll-reveal scroll-reveal-delay-2">
-       <h3 class="font-bold text-xl mb-3 text-gray-300">Comment le scanner fonctionne-t-il ?</h3>
+      <div class="faq-item">
+       <h3 class="text-xl font-bold mb-3">Comment le scanner fonctionne-t-il ?</h3>
        <p class="text-gray-300">Scannez le code-barres de vos produits pour obtenir une évaluation claire et immédiate de leur qualité nutritionnelle.</p>
       </div>
-      <div class="faq-item p-6 bg-gray-900 bg-opacity-40 rounded-2xl border border-gray-800 scroll-reveal scroll-reveal-delay-3">
-       <h3 class="font-bold text-xl mb-3 text-gray-300">Puis-je modifier mes objectifs à tout moment ?</h3>
+      <div class="faq-item">
+       <h3 class="text-xl font-bold mb-3">Puis-je modifier mes objectifs à tout moment ?</h3>
        <p class="text-gray-300">Bien sûr, adaptez votre plan quand vous le souhaitez en fonction de votre évolution.</p>
       </div>
      </div>
     </div>
-   </section><!-- Final CTA Section -->
-   <section class="px-6 py-40 text-left md:text-center bg-black bg-opacity-50">
-    <div class="max-w-4xl mx-auto">
-     <h2 class="text-4xl font-bold mb-6">Prêt à transformer ton alimentation ?</h2>
-     <p id="final-offer-text" class="text-xl mb-10 text-gray-200">Abonne-toi simplement via l'application, sans engagement, et profite d'un accompagnement personnalisé au quotidien.</p><button id="final-cta-button" class="bg-gray-700 text-white hover:bg-gray-600 font-bold px-10 py-5 rounded-full text-xl transition-colors duration-300 shadow-2xl border border-gray-600"> Télécharge AlphaNutrition </button>
+   </section><!-- CTA Final -->
+   <section class="py-20 px-6 bg-black bg-opacity-40">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="text-4xl md:text-5xl font-bold mb-6">Prêt à transformer ton alimentation ?</h2>
+     <p class="text-xl text-gray-300 mb-10">Abonne-toi simplement via l'application, sans engagement, et profite d'un accompagnement personnalisé au quotidien.</p><a href="#" class="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-full hover:bg-gray-200 transition-all transform hover:scale-105"> Télécharge AlphaNutrition </a>
     </div>
    </section><!-- Footer -->
    <footer class="px-6 py-8 text-center text-gray-500 text-sm border-t border-gray-800">
     <p>© 2025 AlphaNutrition. Tous droits réservés.</p>
-    <p class="mt-4"><a href="/confidentialite.html" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors underline">Confidentialité de l'application</a></p>
+    <p class="mt-4 space-x-4"><a href="/confidentialite.html" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors underline">Confidentialité de l'application</a> <span class="text-gray-600">•</span> <a href="/suppcompte.html" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors underline">Suppression de compte</a></p>
    </footer>
   </div>
   <script>
     const defaultConfig = {
-      hero_title: "Le plan alimentaire qui t'accompagne vers tes objectifs, 100% personnalisé.",
-      hero_subtitle: "AlphaNutrition t'offre un suivi complet de tes repas, un scanner intelligent de produits, et un coaching nutritionnel accessible à tout moment.",
-      hero_cta: "Télécharge l'application et commence ta transformation !",
-      benefit_1_title: "Un plan alimentaire sur mesure",
-      benefit_1_text: "Chaque profil est unique. Ton plan s'adapte précisément à tes besoins et objectifs, pour une remise en forme saine et efficace.",
-      benefit_2_title: "Un espace de suivi simple et motivant",
-      benefit_2_text: "Garde un œil sur ce que tu manges, enregistre facilement tes repas et suis tes progrès jour après jour.",
-      benefit_3_title: "Un scanner santé révolutionnaire",
-      benefit_3_text: "Avant d'acheter, scanne tes produits pour vérifier leur qualité nutritionnelle et faire les meilleurs choix pour ton corps.",
-      features_title: "Fonctionnalités principales",
-      trust_text: "AlphaNutrition est conçue par des experts en nutrition et intelligence artificielle. Tes données sont protégées avec la plus grande rigueur. L'application est entièrement pensée pour répondre aux besoins des utilisateurs français, avec sérieux et professionnalisme.",
-      faq_title: "Questions fréquentes",
-      final_offer_text: "Abonne-toi simplement via l'application et profite d'un accompagnement personnalisé au quotidien.",
-      final_cta_button: "Télécharge AlphaNutrition",
+      hero_title: "Le plan alimentaire qui t'accompagne vers tes objectifs 100% personnalisé",
+      hero_subtitle: "AlphaNutrition t'offre un suivi complet de tes repas, un scanner intelligent de produits et un coaching nutritionnel accessible à tout moment.",
+      cta_button: "Télécharger l'application",
       background_color: "#0a0a0a",
       surface_color: "#1a1a1a",
-      text_color: "#ffffff",
-      primary_action_color: "#4b5563",
-      accent_color: "#9ca3af"
+      text_color: "#ffffff"
     };
 
     async function onConfigChange(config) {
-      document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
-      document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
-      document.getElementById('hero-cta').textContent = config.hero_cta || defaultConfig.hero_cta;
-      document.getElementById('benefit-1-title').textContent = config.benefit_1_title || defaultConfig.benefit_1_title;
-      document.getElementById('benefit-1-text').textContent = config.benefit_1_text || defaultConfig.benefit_1_text;
-      document.getElementById('benefit-2-title').textContent = config.benefit_2_title || defaultConfig.benefit_2_title;
-      document.getElementById('benefit-2-text').textContent = config.benefit_2_text || defaultConfig.benefit_2_text;
-      document.getElementById('benefit-3-title').textContent = config.benefit_3_title || defaultConfig.benefit_3_title;
-      document.getElementById('benefit-3-text').textContent = config.benefit_3_text || defaultConfig.benefit_3_text;
-      document.getElementById('features-title').textContent = config.features_title || defaultConfig.features_title;
-      document.getElementById('trust-text').textContent = config.trust_text || defaultConfig.trust_text;
-      document.getElementById('faq-title').textContent = config.faq_title || defaultConfig.faq_title;
-      document.getElementById('final-offer-text').textContent = config.final_offer_text || defaultConfig.final_offer_text;
-      document.getElementById('final-cta-button').textContent = config.final_cta_button || defaultConfig.final_cta_button;
+      const heroTitle = config.hero_title || defaultConfig.hero_title;
+      const heroSubtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
+      const ctaButton = config.cta_button || defaultConfig.cta_button;
+
+      document.getElementById('hero-title').innerHTML = heroTitle.replace('100% personnalisé', '<span class="text-gray-300">100% personnalisé</span>');
+      document.getElementById('hero-subtitle').textContent = heroSubtitle;
+      document.getElementById('cta-button').textContent = ctaButton;
 
       const backgroundColor = config.background_color || defaultConfig.background_color;
       const surfaceColor = config.surface_color || defaultConfig.surface_color;
       const textColor = config.text_color || defaultConfig.text_color;
-      const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
-      const accentColor = config.accent_color || defaultConfig.accent_color;
 
       document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${surfaceColor} 100%)`;
       document.body.style.color = textColor;
-
-      const heroCta = document.getElementById('hero-cta');
-      heroCta.style.backgroundColor = primaryActionColor;
-      
-      const finalCta = document.getElementById('final-cta-button');
-      finalCta.style.backgroundColor = primaryActionColor;
-
-      const benefitTitles = document.querySelectorAll('[id^="benefit-"][id$="-title"]');
-      benefitTitles.forEach(title => {
-        title.style.color = accentColor;
-      });
-
-      const faqTitles = document.querySelectorAll('.faq-item h3');
-      faqTitles.forEach(title => {
-        title.style.color = accentColor;
-      });
     }
 
     function mapToCapabilities(config) {
@@ -455,24 +375,6 @@
                 window.elementSdk.setConfig({ text_color: value });
               }
             }
-          },
-          {
-            get: () => config.primary_action_color || defaultConfig.primary_action_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.primary_action_color = value;
-                window.elementSdk.setConfig({ primary_action_color: value });
-              }
-            }
-          },
-          {
-            get: () => config.accent_color || defaultConfig.accent_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.accent_color = value;
-                window.elementSdk.setConfig({ accent_color: value });
-              }
-            }
           }
         ],
         borderables: [],
@@ -485,18 +387,7 @@
       return new Map([
         ["hero_title", config.hero_title || defaultConfig.hero_title],
         ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
-        ["hero_cta", config.hero_cta || defaultConfig.hero_cta],
-        ["benefit_1_title", config.benefit_1_title || defaultConfig.benefit_1_title],
-        ["benefit_1_text", config.benefit_1_text || defaultConfig.benefit_1_text],
-        ["benefit_2_title", config.benefit_2_title || defaultConfig.benefit_2_title],
-        ["benefit_2_text", config.benefit_2_text || defaultConfig.benefit_2_text],
-        ["benefit_3_title", config.benefit_3_title || defaultConfig.benefit_3_title],
-        ["benefit_3_text", config.benefit_3_text || defaultConfig.benefit_3_text],
-        ["features_title", config.features_title || defaultConfig.features_title],
-        ["trust_text", config.trust_text || defaultConfig.trust_text],
-        ["faq_title", config.faq_title || defaultConfig.faq_title],
-        ["final_offer_text", config.final_offer_text || defaultConfig.final_offer_text],
-        ["final_cta_button", config.final_cta_button || defaultConfig.final_cta_button]
+        ["cta_button", config.cta_button || defaultConfig.cta_button]
       ]);
     }
 
@@ -508,77 +399,18 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Smooth scroll function
-    function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (!section) return;
-      
-      const headerHeight = 80;
-      const sectionTop = section.offsetTop - headerHeight;
-      
-      window.scrollTo({
-        top: sectionTop,
-        behavior: 'smooth'
-      });
-      
-      // Fermer le menu mobile
-      if (!mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-      }
-    }
-
-    // Attacher les événements de navigation
-    document.querySelectorAll('.nav-link').forEach(function(link) {
-      link.addEventListener('click', function(e) {
+    // Smooth scroll pour les ancres
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const href = this.getAttribute('href');
-        const sectionId = href.replace('#', '');
-        scrollToSection(sectionId);
-      });
-    });
-
-    // Créer les particules qui tombent comme Matrix
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = 80;
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        const size = Math.random() * 6 + 2;
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = (Math.random() * 100) + '%';
-        particle.style.animationDelay = Math.random() * 5 + 's';
-        particle.style.animationDuration = (Math.random() * 5 + 8) + 's';
-        
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    // Animation au scroll
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll('.scroll-reveal');
-      
-      reveals.forEach(function(element) {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          element.classList.add('revealed');
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
       });
-    }
-    
-    window.addEventListener('scroll', revealOnScroll);
-    
-    // Initialisation
-    window.addEventListener('load', function() {
-      revealOnScroll();
-      createParticles();
     });
 
     // Initialiser le SDK
@@ -591,5 +423,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99ccc653b732d3d0',t:'MTc2Mjg1MzQ2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a40c5dc76653cb9',t:'MTc2NDA2OTc5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
