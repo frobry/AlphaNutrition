@@ -1,427 +1,1028 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="h-full">
  <head>
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1254270673126071');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1254270673126071&ev=PageView&noscript=1"
-  /></noscript>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlphaNutrition - Votre Coach Nutrition Personnalisé</title>
+  <title>AlphaNutrition - Révolutionne ta nutrition</title>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlphaNutrition - Votre Coach Nutrition Personnalisé</title>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlphaNutrition - Plan alimentaire personnalisé</title>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-    body {
-      box-sizing: border-box;
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
-    
-    .gradient-bg {
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-      position: relative;
-      min-height: 100%;
-      width: 100%;
-    }
-    
-    .gradient-bg::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.045) 0%, transparent 50%);
-      animation: floatGradient 20s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    @keyframes floatGradient {
-      0%, 100% { 
-        transform: translate(0px, 0px) scale(1);
-        opacity: 1;
-      }
-      25% { 
-        transform: translate(30px, -30px) scale(1.05);
-        opacity: 0.8;
-      }
-      50% { 
-        transform: translate(-20px, 20px) scale(0.95);
-        opacity: 1;
-      }
-      75% { 
-        transform: translate(20px, 30px) scale(1.02);
-        opacity: 0.9;
-      }
-    }
-    
-    .content-wrapper {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-    }
-    
-    .benefit-card {
-      background: rgba(26, 26, 26, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 30px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-    }
-    
-    .feature-item {
-      background: rgba(26, 26, 26, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 15px;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    .feature-item:hover {
-      background: rgba(26, 26, 26, 0.5);
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-    
-    .faq-item {
-      background: rgba(26, 26, 26, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 25px;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    .faq-item:hover {
-      background: rgba(26, 26, 26, 0.6);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-  </style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-title-gradient {
+            background: linear-gradient(90deg, 
+                rgba(0, 0, 0, 1) 0%, 
+                rgba(0, 0, 0, 1) 5%,
+                #60A5FA 25%, 
+                #3B82F6 50%, 
+                #60A5FA 75%,
+                rgba(0, 0, 0, 1) 95%, 
+                rgba(0, 0, 0, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .tech-border-red {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(20px);
+            border-left: 3px solid transparent;
+            border-image: linear-gradient(180deg, 
+                rgba(239, 68, 68, 0.9) 0%, 
+                rgba(220, 38, 38, 0.5) 40%,
+                rgba(185, 28, 28, 0.3) 70%, 
+                rgba(127, 29, 29, 0.1) 100%) 1;
+            box-shadow: -3px 0 25px rgba(239, 68, 68, 0.2), inset 0 0 30px rgba(239, 68, 68, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-border-red::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .tech-border-blue {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(20px);
+            border-top: 3px solid transparent;
+            border-image: linear-gradient(90deg, 
+                rgba(59, 130, 246, 0.9) 0%, 
+                rgba(37, 99, 235, 0.5) 40%,
+                rgba(29, 78, 216, 0.3) 70%, 
+                rgba(30, 64, 175, 0.1) 100%) 1;
+            box-shadow: 0 -3px 25px rgba(59, 130, 246, 0.2), inset 0 0 30px rgba(59, 130, 246, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-border-blue::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .tech-border-glow {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            box-shadow: 0 0 35px rgba(59, 130, 246, 0.12), inset 0 0 25px rgba(59, 130, 246, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-border-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .tech-border-green {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.1), inset 0 0 20px rgba(34, 197, 94, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-border-green::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .glow-button {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .glow-button:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15), inset 0 0 30px rgba(59, 130, 246, 0.05);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-gradient {
+            background: #000000;
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+            }
+        }
+
+        /* Special Menu Styles */
+        :root {
+            --menu-background-light: rgb(37, 99, 235);
+            --menu-background-dark: rgb(0, 0, 0);
+            
+            --menu-gradient-color-1: rgb(30, 58, 138);
+            --menu-gradient-color-2: rgb(59, 130, 246);
+            --menu-gradient-color-3: rgb(29, 78, 216);
+            --menu-gradient-color-4: rgb(30, 64, 175);
+        }
+
+        @keyframes arc-rotation {
+            from {
+                transform: translate3d(-50%, -50%, 0px) rotate(0deg);
+            }
+            
+            to {
+                transform: translate3d(-50%, -50%, 0px) rotate(360deg);
+            }
+        }
+
+        body.menu-toggled > #special-menu {
+            pointer-events: all; 
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:first-of-type {
+            transform: translate3d(0px, 9px, 0px) rotate(45deg);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:nth-of-type(2) {
+            opacity: 0;
+            transform: translate3d(-5px, 0px, 0px);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:nth-of-type(3) {
+            transform: translate3d(0px, -9px, 0px) rotate(-45deg);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-label > .word {
+            opacity: 0;
+            transform: translate3d(-30%, 0px, 0px) skew(20deg) scaleX(1.2);  
+            transition: opacity 250ms cubic-bezier(.71, .19, .87, .33), 
+                transform 250ms cubic-bezier(.71, .19, .87, .33);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-label > .word:nth-of-type(2) {
+            transition-delay: 100ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-gradient {
+            height: 200vmax;
+            opacity: 1;
+            transform: translate3d(-50%, -50%, 0px);
+            transition: height 600ms cubic-bezier(.58, .2, .62, .93), 
+                width 600ms cubic-bezier(.58, .2, .62, .93), 
+                transform 600ms cubic-bezier(.58, .2, .62, .93), 
+                opacity 400ms;
+            width: 200vmax;
+        }
+
+        body.menu-toggled > #special-menu > #menu-gradient-blur {
+            opacity: 1; 
+        }
+
+        body.menu-toggled > #special-menu > #menu-arcs-wrapper {
+            opacity: 1;
+            transform: scale(1);
+            transition: transform 600ms cubic-bezier(.16, .68, .25, .83), 
+                opacity 600ms cubic-bezier(.87, .12, .92, .39); 
+        }
+
+        body.menu-toggled > #special-menu > #menu-items {
+            opacity: 1;
+            pointer-events: all;
+            transform: translate3d(0px, 0px, 0px);
+            transition: opacity 600ms 200ms, transform 600ms 200ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item {
+            opacity: 1;
+            transform: translate3d(0px, 0px, 0px);
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(1) {
+            transition: opacity 600ms 300ms, transform 600ms 300ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(2) {
+            transition: opacity 600ms 350ms, transform 600ms 350ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(3) {
+            transition: opacity 600ms 400ms, transform 600ms 400ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(4) {
+            transition: opacity 600ms 450ms, transform 600ms 450ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(5) {
+            transition: opacity 600ms 500ms, transform 600ms 500ms;
+        }
+
+        #special-menu {
+            height: 100%;
+            left: 0;
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+        }
+
+        #menu-toggle {
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            gap: 12px;
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            z-index: 2;
+        }
+
+        #menu-toggle-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            height: 24px;
+            justify-content: center;
+            width: 30px;
+        }
+
+        #menu-toggle-icon > span {
+            background-color: white;
+            border-radius: 2px;
+            height: 3px;
+            transition: opacity 400ms, transform 400ms;
+            width: 100%;
+        }
+
+        #menu-toggle-label {
+            display: flex;
+            gap: 4px;
+            overflow: hidden;
+        }
+
+        #menu-toggle-label > .word {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 400ms 200ms, transform 400ms 200ms;
+        }
+
+        #menu-toggle-label > .word:nth-of-type(2) {
+            transition-delay: 300ms;
+        }
+
+        #menu-gradient {
+            background: radial-gradient(
+                circle at center, 
+                var(--menu-gradient-color-1) 0%, 
+                var(--menu-gradient-color-2) 25%, 
+                var(--menu-gradient-color-3) 50%, 
+                var(--menu-gradient-color-4) 75%, 
+                var(--menu-background-dark) 100%
+            );
+            height: 0vmax;
+            left: 50%;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px) scale(0.5);
+            transition: height 600ms cubic-bezier(.58, .2, .62, .93), 
+                width 600ms cubic-bezier(.58, .2, .62, .93), 
+                transform 600ms cubic-bezier(.58, .2, .62, .93), 
+                opacity 600ms 200ms;
+            width: 0vmax;
+            z-index: -1;
+        }
+
+        #menu-gradient-blur {
+            backdrop-filter: blur(10px);
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transition: opacity 600ms;
+            width: 100%;
+            z-index: -1;
+        }
+
+        #menu-arcs-wrapper {
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: scale(0.8);
+            transition: transform 600ms 200ms, opacity 600ms;
+            width: 100%;
+            z-index: 1;
+        }
+
+        #menu-arcs {
+            animation: arc-rotation 20s linear infinite;
+            height: 150vmax;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px);
+            width: 150vmax;
+        }
+
+        .menu-arc {
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            border-radius: 50%;
+            height: 100%;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px);
+            width: 100%;
+        }
+
+        .menu-arc:nth-of-type(2) {
+            height: 75%;
+            width: 75%;
+        }
+
+        .menu-arc:nth-of-type(3) {
+            height: 50%;
+            width: 50%;
+        }
+
+        #menu-items {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            height: 100%;
+            justify-content: center;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: translate3d(0px, -30px, 0px);
+            transition: opacity 400ms, transform 400ms;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .menu-item {
+            color: white;
+            cursor: pointer;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            opacity: 0;
+            text-transform: uppercase;
+            transform: translate3d(0px, 20px, 0px);
+            transition: color 300ms, opacity 400ms, transform 400ms;
+        }
+
+        .menu-item:hover {
+            color: rgb(96, 165, 250);
+        }
+
+        /* Hide special menu on desktop */
+        @media (min-width: 768px) {
+            #special-menu {
+                display: none;
+            }
+        }
+    </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="gradient-bg text-white"><!-- Header avec navigation -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800">
-   <nav class="max-w-6xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between"><!-- Logo -->
-     <div class="text-2xl font-bold text-white">
-      AlphaNutrition
-     </div><!-- Menu desktop -->
-     <div class="hidden md:flex space-x-8"><a href="#accueil" class="text-white font-semibold transition-colors">Accueil</a> <a href="#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
-     </div><!-- Menu burger mobile --> <button id="menu-toggle" class="md:hidden text-white">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg></button>
-    </div><!-- Menu mobile -->
-    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700">
-     <div class="flex flex-col space-y-4 pt-4"><a href="#accueil" class="text-white font-semibold transition-colors">Accueil</a> <a href="#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
+ <body class="h-full overflow-auto">
+  <div id="app-wrapper" class="w-full h-full"><!-- Special Mobile Menu -->
+   <div id="special-menu">
+    <div id="menu-toggle">
+     <div id="menu-toggle-label"><span class="word">Menu</span>
+     </div>
+     <div id="menu-toggle-icon"><span></span> <span></span> <span></span>
      </div>
     </div>
-   </nav>
-  </header>
-  <div class="content-wrapper"><!-- Hero Section -->
-   <section id="accueil" class="pt-32 pb-20 px-6">
-    <div class="max-w-6xl mx-auto text-center">
-     <h1 id="hero-title" class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Le plan alimentaire qui t'accompagne vers tes objectifs<br><span class="text-gray-300">100% personnalisé</span></h1>
-     <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">AlphaNutrition t'offre un suivi complet de tes repas, un scanner intelligent de produits et un coaching nutritionnel accessible à tout moment.</p><a href="#" id="cta-button" class="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-full hover:bg-gray-200 transition-all transform hover:scale-105"> Télécharger l'application </a>
+    <div id="menu-gradient"></div>
+    <div id="menu-gradient-blur"></div>
+    <div id="menu-arcs-wrapper">
+     <div id="menu-arcs">
+      <div class="menu-arc"></div>
+      <div class="menu-arc"></div>
+      <div class="menu-arc"></div>
+     </div>
     </div>
-   </section><!-- Section Bénéfices -->
-   <section id="benefices" class="py-20 px-6">
+    <div id="menu-items"><a href="https://nutrition.frobry.com/index.html" class="menu-item">Accueil</a> <a href="https://nutrition.frobry.com/faq.html" class="menu-item">FAQ</a> <a href="https://nutrition.frobry.com/assistance.html" class="menu-item">Assistance</a> <a href="https://nutrition.frobry.com/confidentialite.html" class="menu-item" style="font-size: 32px;">Confidentialité</a> <a href="https://nutrition.frobry.com/suppcompte.html" class="menu-item" style="font-size: 32px;">Suppression</a>
+    </div>
+   </div><!-- Navigation Menu -->
+   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-xl bg-black bg-opacity-40 shadow-2xl" style="box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15);">
+    <div class="max-w-7xl mx-auto px-6 py-5">
+     <div class="flex items-center justify-between"><!-- Logo --> <a href="https://nutrition.frobry.com/index.html" class="text-2xl font-black gradient-text hover:opacity-80 transition-opacity"> AlphaNutrition </a> <!-- Menu Items -->
+      <div class="hidden md:flex items-center space-x-1"><a href="https://nutrition.frobry.com/index.html" class="px-5 py-2.5 text-white font-medium rounded-xl hover:bg-white hover:bg-opacity-10 transition-all duration-300 relative group"> <span class="relative z-10">Accueil</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div></a> <a href="https://nutrition.frobry.com/faq.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> FAQ </a> <a href="https://nutrition.frobry.com/assistance.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> Assistance </a>
+      </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+       </svg></button>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 space-y-2"><a href="https://nutrition.frobry.com/index.html" class="block px-5 py-3 text-white font-medium rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 transition-all"> Accueil </a> <a href="https://nutrition.frobry.com/faq.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> FAQ </a> <a href="https://nutrition.frobry.com/assistance.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> Assistance </a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="hero-gradient min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden" style="padding-top: 180px;"><!-- Decorative Elements -->
+    <div class="absolute top-20 right-20 w-96 h-96 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
+    <div class="max-w-6xl mx-auto text-center relative z-10 fade-in">
+     <h1 id="hero-title" class="text-5xl md:text-7xl font-black mb-6 leading-tight hero-title-gradient">Révolutionne ta nutrition.<br>
+       Simplifie ta sant����.</h1>
+     <p id="hero-subtitle" class="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed font-light">AlphaNutrition est la plateforme intelligente qui crée ton plan nutritionnel personnalisé, adapt�� à ton corps, ton mode de vie et tes objectifs.</p>
+     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center"><button id="hero-cta-primary" class="glow-button bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-full text-lg font-semibold transition-all"> Commencer maintenant </button> <button id="hero-cta-secondary" class="glass-effect text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-white hover:bg-opacity-10 transition-all"> Créer mon plan personnalisé </button>
+     </div>
+    </div>
+   </section><!-- Problem Section -->
+   <section class="py-24 px-6" style="background-color: #0a0a0a;">
+    <div class="max-w-5xl mx-auto">
+     <h2 id="problem-title" class="text-4xl md:text-5xl font-bold text-white mb-12 text-center">La nutrition est devenue trop compliquée</h2>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="tech-border-red p-8 rounded-2xl">
+       <h3 class="text-2xl font-bold text-white mb-4">❌ Informations contradictoires</h3>
+       <p class="text-blue-100 leading-relaxed">Chaque expert dit quelque chose de différent. Difficile de savoir qui croire et quoi faire.</p>
+      </div>
+      <div class="tech-border-red p-8 rounded-2xl">
+       <h3 class="text-2xl font-bold text-white mb-4">❌ Régimes inefficaces</h3>
+       <p class="text-blue-100 leading-relaxed">Des promesses irréalistes, des restrictions extrêmes, et des résultats qui ne durent pas.</p>
+      </div>
+      <div class="tech-border-red p-8 rounded-2xl">
+       <h3 class="text-2xl font-bold text-white mb-4">❌ Manque de personnalisation</h3>
+       <p class="text-blue-100 leading-relaxed">Les plans génériques ne prennent pas en compte ton corps unique et ton style de vie.</p>
+      </div>
+      <div class="tech-border-red p-8 rounded-2xl">
+       <h3 class="text-2xl font-bold text-white mb-4">❌ Absence de suivi</h3>
+       <p class="text-blue-100 leading-relaxed">Tu es livré à toi-même sans accompagnement ni ajustement adapté à ta progression.</p>
+      </div>
+     </div>
+     <div class="text-center mt-16">
+      <p class="text-3xl font-bold gradient-text">La nutrition ne doit pas être compliquée pour être efficace.</p>
+     </div>
+    </div>
+   </section><!-- Solution Section -->
+   <section class="py-24 px-6" style="background-color: #0f0f0f;">
     <div class="max-w-6xl mx-auto">
-     <div class="grid md:grid-cols-3 gap-8"><!-- Bénéfice 1 -->
-      <div class="benefit-card">
+     <div class="text-center mb-16">
+      <h2 id="solution-title" class="text-4xl md:text-5xl font-bold text-white mb-6">AlphaNutrition : <span class="gradient-text">La solution claire et moderne</span></h2>
+      <p class="text-xl text-blue-200 max-w-3xl mx-auto">Une plateforme intelligente qui transforme ta relation avec la nutrition</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="tech-border-blue p-8 rounded-2xl shadow-lg">
+       <div class="text-4xl mb-4">
+        🧠
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Comprendre ce que tu manges</h3>
+       <p class="text-blue-100 leading-relaxed">Visualise clairement l'impact nutritionnel de chaque aliment sur ton corps et tes objectifs.</p>
+      </div>
+      <div class="tech-border-blue p-8 rounded-2xl shadow-lg">
+       <div class="text-4xl mb-4">
+        📊
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Savoir quoi manger, quand et pourquoi</h3>
+       <p class="text-blue-100 leading-relaxed">Reçois des recommandations précises adaptées à ton emploi du temps et tes préférences.</p>
+      </div>
+      <div class="tech-border-blue p-8 rounded-2xl shadow-lg">
+       <div class="text-4xl mb-4">
+        ⚡
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Adapter la nutrition à TON corps</h3>
+       <p class="text-blue-100 leading-relaxed">Un plan unique créé spécifiquement pour toi, basé sur tes besoins réels et ton métabolisme.</p>
+      </div>
+      <div class="tech-border-blue p-8 rounded-2xl shadow-lg">
+       <div class="text-4xl mb-4">
+        🚀
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Obtenir des résultats visibles et durables</h3>
+       <p class="text-blue-100 leading-relaxed">Transforme ton corps et ta santé avec une approche qui dure dans le temps.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Features Section -->
+   <section class="py-24 px-6" style="background-color: #0a0a0a;">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Fonctionnalités <span class="gradient-text">intelligentes</span></h2>
+      <p class="text-xl text-blue-200 max-w-3xl mx-auto">Tout ce dont tu as besoin pour réussir ta transformation nutritionnelle</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="feature-card tech-border-glow p-8 rounded-2xl">
        <div class="text-5xl mb-4">
         📋
        </div>
-       <h3 class="text-2xl font-bold mb-4">Un plan alimentaire sur mesure</h3>
-       <p class="text-gray-300 leading-relaxed">Chaque profil est unique, ton plan s'adapte précisément à tes besoins et objectifs pour une remise en forme saine et efficace.</p>
-      </div><!-- Bénéfice 2 -->
-      <div class="benefit-card">
+       <h3 class="text-2xl font-bold text-white mb-4">Plan nutritionnel personnalisé</h3>
+       <p class="text-blue-100">Créé spécifiquement pour toi en fonction de ton âge, poids, activité et objectifs.</p>
+      </div>
+      <div class="feature-card tech-border-glow p-8 rounded-2xl">
        <div class="text-5xl mb-4">
-        📊
+        🧮
        </div>
-       <h3 class="text-2xl font-bold mb-4">Un espace de suivi simple et motivant</h3>
-       <p class="text-gray-300 leading-relaxed">Garde un œil sur ce que tu manges, enregistre facilement tes repas et suis tes progrès jour après jour.</p>
-      </div><!-- Bénéfice 3 -->
-      <div class="benefit-card">
+       <h3 class="text-2xl font-bold text-white mb-4">Calcul intelligent des besoins</h3>
+       <p class="text-blue-100">Algorithme avancé qui détermine précisément tes besoins caloriques et macros.</p>
+      </div>
+      <div class="feature-card tech-border-glow p-8 rounded-2xl">
        <div class="text-5xl mb-4">
-        📱
+        🎯
        </div>
-       <h3 class="text-2xl font-bold mb-4">Un scanner santé révolutionnaire</h3>
-       <p class="text-gray-300 leading-relaxed">Avant d'acheter, scanne tes produits pour vérifier leur qualité nutritionnelle et faire les meilleurs choix pour ton corps.</p>
+       <h3 class="text-2xl font-bold text-white mb-4">Objectifs clairs</h3>
+       <p class="text-blue-100">Perte de poids, prise de masse, santé optimale ou boost d'énergie : définis ton cap.</p>
+      </div>
+      <div class="feature-card tech-border-glow p-8 rounded-2xl">
+       <div class="text-5xl mb-4">
+        📈
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Suivi de progression</h3>
+       <p class="text-blue-100">Visualise ton évolution avec des graphiques clairs et motivants.</p>
+      </div>
+      <div class="feature-card tech-border-glow p-8 rounded-2xl">
+       <div class="text-5xl mb-4">
+        🍽️
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Recommandations alimentaires simples</h3>
+       <p class="text-blue-100">Suggestions concrètes et faciles à suivre au quotidien, sans prise de tête.</p>
+      </div>
+      <div class="feature-card tech-border-glow p-8 rounded-2xl">
+       <div class="text-5xl mb-4">
+        🔄
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Ajustements automatiques</h3>
+       <p class="text-blue-100">Ton plan s'adapte automatiquement à tes progrès et à tes changements.</p>
+      </div>
+      <div class="feature-card tech-border-glow p-8 rounded-2xl">
+       <div class="text-5xl mb-4">
+        💎
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Interface claire et intuitive</h3>
+       <p class="text-blue-100">Design moderne et facile à utiliser, même si tu débutes en nutrition.</p>
+      </div>
+      <div class="feature-card tech-border-glow p-8 rounded-2xl">
+       <div class="text-5xl mb-4">
+        👥
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Accessible à tous niveaux</h3>
+       <p class="text-blue-100">Que tu sois débutant ou expert, AlphaNutrition s'adapte à ton niveau.</p>
       </div>
      </div>
     </div>
-   </section><!-- Section Fonctionnalités -->
-   <section id="fonctionnalites" class="py-20 px-6 bg-black bg-opacity-30">
+   </section><!-- Target Audience Section -->
+   <section class="py-24 px-6" style="background-color: #0f0f0f;">
     <div class="max-w-6xl mx-auto">
-     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Fonctionnalités principales</h2>
-     <div class="grid md:grid-cols-2 gap-6 mb-16">
-      <div class="feature-item">
-       <div class="flex items-start space-x-4">
-        <div class="text-3xl">
-         ✅
-        </div>
-        <div>
-         <h4 class="text-xl font-semibold mb-2">Questionnaire détaillé pour une anamnèse complète</h4>
-        </div>
-       </div>
-      </div>
-      <div class="feature-item">
-       <div class="flex items-start space-x-4">
-        <div class="text-3xl">
-         📅
-        </div>
-        <div>
-         <h4 class="text-xl font-semibold mb-2">Plans alimentaires personnalisés répartis sur 4 semaines</h4>
-        </div>
-       </div>
-      </div>
-      <div class="feature-item">
-       <div class="flex items-start space-x-4">
-        <div class="text-3xl">
-         🍽️
-        </div>
-        <div>
-         <h4 class="text-xl font-semibold mb-2">Suivi des repas intuitif et visuel</h4>
-        </div>
-       </div>
-      </div>
-      <div class="feature-item">
-       <div class="flex items-start space-x-4">
-        <div class="text-3xl">
-         📱
-        </div>
-        <div>
-         <h4 class="text-xl font-semibold mb-2">Scanner code-barres pour analyser rapidement vos achats</h4>
-        </div>
-       </div>
-      </div>
-      <div class="feature-item">
-       <div class="flex items-start space-x-4">
-        <div class="text-3xl">
-         📸
-        </div>
-        <div>
-         <h4 class="text-xl font-semibold mb-2">Analyse IA de vos repas par photo, simple et rapide</h4>
-        </div>
-       </div>
-      </div>
-      <div class="feature-item">
-       <div class="flex items-start space-x-4">
-        <div class="text-3xl">
-         💬
-        </div>
-        <div>
-         <h4 class="text-xl font-semibold mb-2">Chat IA pour un accompagnement nutritionnel et bienveillant</h4>
-        </div>
-       </div>
-      </div>
-      <div class="feature-item">
-       <div class="flex items-start space-x-4">
-        <div class="text-3xl">
-         📖
-        </div>
-        <div>
-         <h4 class="text-xl font-semibold mb-2">Bibliothèque riche de recettes adaptées à tous les objectifs</h4>
-        </div>
-       </div>
-      </div>
-      <div class="feature-item">
-       <div class="flex items-start space-x-4">
-        <div class="text-3xl">
-         🛡️
-        </div>
-        <div>
-         <h4 class="text-xl font-semibold mb-2">Données protégées avec la plus grande rigueur</h4>
-        </div>
-       </div>
-      </div>
+     <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Pour qui est AlphaNutrition ?</h2>
+      <p class="text-2xl gradient-text font-semibold">Peu importe ton niveau, AlphaNutrition s'adapte à toi.</p>
      </div>
-     <div class="text-center max-w-3xl mx-auto">
-      <p class="text-lg text-gray-300 leading-relaxed">AlphaNutrition est conçue par des experts en nutrition et intelligence artificielle. Tes données sont protégées avec la plus grande rigueur. L'application est entièrement pensée pour répondre aux besoins des utilisateurs français, avec sérieux et professionnalisme.</p>
-     </div>
-    </div>
-   </section><!-- Section FAQ -->
-   <section id="faq" class="py-20 px-6">
-    <div class="max-w-4xl mx-auto">
-     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Questions fréquentes</h2>
-     <div class="space-y-6">
-      <div class="faq-item">
-       <h3 class="text-xl font-bold mb-3">Puis-je utiliser AlphaNutrition si j'ai des allergies ?</h3>
-       <p class="text-gray-300">Oui, l'application prend en compte vos restrictions alimentaires pour vous proposer des alternatives adaptées.</p>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="tech-border-glow p-8 rounded-2xl shadow-md">
+       <div class="text-4xl mb-4">
+        🌱
+       </div>
+       <h3 class="text-xl font-bold text-white mb-3">Débutants en nutrition</h3>
+       <p class="text-blue-100">Tu veux apprendre les bases et commencer simplement ? C'est parfait pour toi.</p>
       </div>
-      <div class="faq-item">
-       <h3 class="text-xl font-bold mb-3">Dois-je peser mes aliments ?</h3>
-       <p class="text-gray-300">Non, le suivi est pensé pour être simple, sans contrainte inutile.</p>
+      <div class="tech-border-glow p-8 rounded-2xl shadow-md">
+       <div class="text-4xl mb-4">
+        💪
+       </div>
+       <h3 class="text-xl font-bold text-white mb-3">Sportifs</h3>
+       <p class="text-blue-100">Optimise ta nutrition pour améliorer tes performances et ta récupération.</p>
       </div>
-      <div class="faq-item">
-       <h3 class="text-xl font-bold mb-3">Comment le scanner fonctionne-t-il ?</h3>
-       <p class="text-gray-300">Scannez le code-barres de vos produits pour obtenir une évaluation claire et immédiate de leur qualité nutritionnelle.</p>
+      <div class="tech-border-glow p-8 rounded-2xl shadow-md">
+       <div class="text-4xl mb-4">
+        ⚡
+       </div>
+       <h3 class="text-xl font-bold text-white mb-3">Personnes actives</h3>
+       <p class="text-blue-100">Un quotidien chargé ? Reçois des conseils qui s'intègrent à ton rythme.</p>
       </div>
-      <div class="faq-item">
-       <h3 class="text-xl font-bold mb-3">Puis-je modifier mes objectifs à tout moment ?</h3>
-       <p class="text-gray-300">Bien sûr, adaptez votre plan quand vous le souhaitez en fonction de votre évolution.</p>
+      <div class="tech-border-glow p-8 rounded-2xl shadow-md">
+       <div class="text-4xl mb-4">
+        ❤️
+       </div>
+       <h3 class="text-xl font-bold text-white mb-3">Santé et bien-être</h3>
+       <p class="text-blue-100">Prends soin de ton corps et améliore ton énergie au quotidien.</p>
+      </div>
+      <div class="tech-border-glow p-8 rounded-2xl shadow-md">
+       <div class="text-4xl mb-4">
+        🔄
+       </div>
+       <h3 class="text-xl font-bold text-white mb-3">Fatigués des régimes</h3>
+       <p class="text-blue-100">Fini les frustrations et les échecs. Place à une approche durable.</p>
+      </div>
+      <div class="tech-border-glow p-8 rounded-2xl shadow-md">
+       <div class="text-4xl mb-4">
+        🎯
+       </div>
+       <h3 class="text-xl font-bold text-white mb-3">Transformation physique</h3>
+       <p class="text-blue-100">Atteins tes objectifs de poids et de composition corporelle intelligemment.</p>
       </div>
      </div>
     </div>
-   </section><!-- CTA Final -->
-   <section class="py-20 px-6 bg-black bg-opacity-40">
+   </section><!-- Philosophy Section -->
+   <section class="py-24 px-6" style="background-color: #0a0a0a;">
+    <div class="max-w-5xl mx-auto">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Notre méthode &amp; philosophie</h2>
+      <p class="text-xl text-blue-200 max-w-3xl mx-auto">Une approche intelligente, durable et humaine de la nutrition</p>
+     </div>
+     <div class="tech-border-blue p-12 rounded-3xl shadow-xl">
+      <div class="grid md:grid-cols-2 gap-12">
+       <div>
+        <h3 class="text-2xl font-bold text-white mb-6">❌ Ce que nous NE sommes PAS</h3>
+        <ul class="space-y-4">
+         <li class="flex items-start"><span class="text-red-400 mr-3 text-xl">✗</span> <span class="text-blue-100">Pas de régime extrême ou restrictif</span></li>
+         <li class="flex items-start"><span class="text-red-400 mr-3 text-xl">✗</span> <span class="text-blue-100">Pas de frustration ou de privation</span></li>
+         <li class="flex items-start"><span class="text-red-400 mr-3 text-xl">✗</span> <span class="text-blue-100">Pas de dogme alimentaire rigide</span></li>
+         <li class="flex items-start"><span class="text-red-400 mr-3 text-xl">✗</span> <span class="text-blue-100">Pas de promesses irréalistes</span></li>
+        </ul>
+       </div>
+       <div>
+        <h3 class="text-2xl font-bold text-white mb-6">✓ Ce que nous SOMMES</h3>
+        <ul class="space-y-4">
+         <li class="flex items-start"><span class="text-green-400 mr-3 text-xl">✓</span> <span class="text-blue-100">Une approche durable et intelligente</span></li>
+         <li class="flex items-start"><span class="text-green-400 mr-3 text-xl">✓</span> <span class="text-blue-100">Un accompagnement humain et bienveillant</span></li>
+         <li class="flex items-start"><span class="text-green-400 mr-3 text-xl">✓</span> <span class="text-blue-100">Une personnalisation totale à ton corps</span></li>
+         <li class="flex items-start"><span class="text-green-400 mr-3 text-xl">✓</span> <span class="text-blue-100">Des résultats concrets et mesurables</span></li>
+        </ul>
+       </div>
+      </div>
+      <div class="mt-12 pt-12 border-t border-blue-500 border-opacity-30">
+       <h3 class="text-2xl font-bold text-white mb-6 text-center">AlphaNutrition t'aide à :</h3>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex items-center tech-border-green p-6 rounded-xl"><span class="text-3xl mr-4">🍽️</span> <span class="text-blue-100 font-medium">Mieux manger sans te priver</span>
+        </div>
+        <div class="flex items-center tech-border-green p-6 rounded-xl"><span class="text-3xl mr-4">🔄</span> <span class="text-blue-100 font-medium">Créer de vraies habitudes durables</span>
+        </div>
+        <div class="flex items-center tech-border-green p-6 rounded-xl"><span class="text-3xl mr-4">🧠</span> <span class="text-blue-100 font-medium">Comprendre ton alimentation</span>
+        </div>
+        <div class="flex items-center tech-border-green p-6 rounded-xl"><span class="text-3xl mr-4">���</span> <span class="text-blue-100 font-medium">Reprendre le contrôle de ta santé</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Credibility Section -->
+   <section class="py-24 px-6" style="background-color: #0f0f0f;">
+    <div class="max-w-5xl mx-auto">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Une approche <span class="gradient-text">professionnelle</span></h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="tech-border-glow p-8 rounded-2xl">
+       <div class="text-4xl mb-4">
+        🔬
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Basé sur la science</h3>
+       <p class="text-blue-100">Notre approche combine connaissances scientifiques et expérience terrain pour des résultats réels.</p>
+      </div>
+      <div class="tech-border-glow p-8 rounded-2xl">
+       <div class="text-4xl mb-4">
+        🎯
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Vision professionnelle</h3>
+       <p class="text-blue-100">Développé avec une expertise nutrition pour garantir qualité et efficacité.</p>
+      </div>
+      <div class="tech-border-glow p-8 rounded-2xl">
+       <div class="text-4xl mb-4">
+        ⏰
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Pensé pour durer</h3>
+       <p class="text-blue-100">Pas de solution miracle, mais une transformation progressive et durable.</p>
+      </div>
+      <div class="tech-border-glow p-8 rounded-2xl">
+       <div class="text-4xl mb-4">
+        ✨
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-4">Résultats concrets</h3>
+       <p class="text-blue-100">Conçu pour produire de vrais changements visibles et mesurables dans ta vie.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Final CTA Section -->
+   <section class="py-32 px-6" style="background-color: #0a0a0a;">
     <div class="max-w-4xl mx-auto text-center">
-     <h2 class="text-4xl md:text-5xl font-bold mb-6">Prêt à transformer ton alimentation ?</h2>
-     <p class="text-xl text-gray-300 mb-10">Abonne-toi simplement via l'application, sans engagement, et profite d'un accompagnement personnalisé au quotidien.</p><a href="#" class="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-full hover:bg-gray-200 transition-all transform hover:scale-105"> Télécharge AlphaNutrition </a>
+     <h2 id="final-cta-title" class="text-5xl md:text-6xl font-black text-white mb-8">Commence dès maintenant ta <span class="gradient-text">transformation</span></h2>
+     <p class="text-2xl text-blue-200 mb-12 leading-relaxed">Rejoins les personnes qui ont décidé de prendre leur nutrition en main de manière intelligente et durable.</p><button id="final-cta-button" class="pulse-glow glow-button bg-blue-600 hover:bg-blue-700 text-white px-16 py-6 rounded-full text-2xl font-bold transition-all"> Créer mon plan personnalisé gratuitement </button>
+     <p class="text-blue-300 mt-8">✓ Sans engagement • ✓ Configuration en 3 minutes • ✓ Résultats garantis</p>
     </div>
    </section><!-- Footer -->
-   <footer class="px-6 py-8 text-center text-gray-500 text-sm border-t border-gray-800">
-    <p>© 2025 AlphaNutrition. Tous droits réservés.</p>
-    <p class="mt-4 space-x-4"><a href="/confidentialite.html" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors underline">Confidentialité de l'application</a> <span class="text-gray-600">•</span> <a href="/suppcompte.html" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors underline">Suppression de compte</a></p>
+   <footer class="py-12 px-6" style="background-color: #050505;">
+    <div class="max-w-6xl mx-auto text-center">
+     <div class="text-3xl font-bold gradient-text mb-4">
+      AlphaNutrition
+     </div>
+     <p class="text-slate-400 mb-6">La nutrition intelligente et personnalisée</p>
+     <div class="flex justify-center flex-wrap gap-x-8 gap-y-3 text-slate-400 text-sm"><a href="https://nutrition.frobry.com/faq.html" class="hover:text-blue-400 transition-colors">FAQ</a> <a href="https://nutrition.frobry.com/assistance.html" class="hover:text-blue-400 transition-colors">Assistance</a> <a href="https://nutrition.frobry.com/confidentialite.html" class="hover:text-blue-400 transition-colors">Confidentialité</a> <a href="https://nutrition.frobry.com/suppcompte.html" class="hover:text-blue-400 transition-colors">Suppression du compte</a>
+     </div>
+     <p class="text-slate-500 text-sm mt-8">© 2024 AlphaNutrition. Tous droits réservés.</p>
+    </div>
    </footer>
   </div>
   <script>
-    const defaultConfig = {
-      hero_title: "Le plan alimentaire qui t'accompagne vers tes objectifs 100% personnalisé",
-      hero_subtitle: "AlphaNutrition t'offre un suivi complet de tes repas, un scanner intelligent de produits et un coaching nutritionnel accessible à tout moment.",
-      cta_button: "Télécharger l'application",
-      background_color: "#0a0a0a",
-      surface_color: "#1a1a1a",
-      text_color: "#ffffff"
-    };
+        const defaultConfig = {
+            background_color: "#000000",
+            surface_color: "#FFFFFF",
+            text_color: "#1E293B",
+            primary_action_color: "#3B82F6",
+            secondary_action_color: "#60A5FA",
+            font_family: "Inter",
+            font_size: 16,
+            hero_title: "Révolutionne ta nutrition.\nSimplifie ta santé.",
+            hero_subtitle: "AlphaNutrition est la plateforme intelligente qui crée ton plan nutritionnel personnalisé, adapté à ton corps, ton mode de vie et tes objectifs.",
+            hero_cta_primary: "Commencer maintenant",
+            hero_cta_secondary: "Créer mon plan personnalisé",
+            problem_title: "La nutrition est devenue trop compliquée",
+            solution_title: "AlphaNutrition : La solution claire et moderne",
+            final_cta_title: "Commence dès maintenant ta transformation",
+            final_cta_button: "Créer mon plan personnalisé gratuitement"
+        };
 
-    async function onConfigChange(config) {
-      const heroTitle = config.hero_title || defaultConfig.hero_title;
-      const heroSubtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
-      const ctaButton = config.cta_button || defaultConfig.cta_button;
-
-      document.getElementById('hero-title').innerHTML = heroTitle.replace('100% personnalisé', '<span class="text-gray-300">100% personnalisé</span>');
-      document.getElementById('hero-subtitle').textContent = heroSubtitle;
-      document.getElementById('cta-button').textContent = ctaButton;
-
-      const backgroundColor = config.background_color || defaultConfig.background_color;
-      const surfaceColor = config.surface_color || defaultConfig.surface_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-
-      document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${surfaceColor} 100%)`;
-      document.body.style.color = textColor;
-    }
-
-    function mapToCapabilities(config) {
-      return {
-        recolorables: [
-          {
-            get: () => config.background_color || defaultConfig.background_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.background_color = value;
-                window.elementSdk.setConfig({ background_color: value });
-              }
+        async function onConfigChange(config) {
+            const baseFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = `${baseFont}, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const surfaceColor = config.surface_color || defaultConfig.surface_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+            
+            document.body.style.fontFamily = baseFontStack;
+            document.body.style.fontSize = `${baseSize}px`;
+            
+            const heroSections = document.querySelectorAll('.hero-gradient');
+            heroSections.forEach(section => {
+                section.style.background = backgroundColor;
+            });
+            
+            const primaryButtons = document.querySelectorAll('.glow-button');
+            primaryButtons.forEach(btn => {
+                btn.style.backgroundColor = primaryActionColor;
+                btn.style.boxShadow = `0 0 20px ${primaryActionColor}50`;
+            });
+            
+            const secondaryButtons = document.querySelectorAll('.glass-effect button, button.glass-effect');
+            secondaryButtons.forEach(btn => {
+                btn.style.borderColor = secondaryActionColor;
+            });
+            
+            const heroTitle = document.getElementById('hero-title');
+            if (heroTitle) {
+                const title = config.hero_title || defaultConfig.hero_title;
+                heroTitle.textContent = title.replace(/\\n/g, '\n');
+                heroTitle.style.fontSize = `${baseSize * 3.5}px`;
+                heroTitle.style.background = `linear-gradient(90deg, 
+                    ${backgroundColor} 0%, 
+                    ${backgroundColor} 5%,
+                    ${secondaryActionColor} 25%, 
+                    ${primaryActionColor} 50%, 
+                    ${secondaryActionColor} 75%,
+                    ${backgroundColor} 95%, 
+                    ${backgroundColor} 100%)`;
+                heroTitle.style.webkitBackgroundClip = 'text';
+                heroTitle.style.webkitTextFillColor = 'transparent';
+                heroTitle.style.backgroundClip = 'text';
             }
-          },
-          {
-            get: () => config.surface_color || defaultConfig.surface_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.surface_color = value;
-                window.elementSdk.setConfig({ surface_color: value });
-              }
+            
+            const heroSubtitle = document.getElementById('hero-subtitle');
+            if (heroSubtitle) {
+                heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+                heroSubtitle.style.fontSize = `${baseSize * 1.25}px`;
             }
-          },
-          {
-            get: () => config.text_color || defaultConfig.text_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.text_color = value;
-                window.elementSdk.setConfig({ text_color: value });
-              }
+            
+            const heroCTAPrimary = document.getElementById('hero-cta-primary');
+            if (heroCTAPrimary) {
+                heroCTAPrimary.textContent = config.hero_cta_primary || defaultConfig.hero_cta_primary;
+                heroCTAPrimary.style.fontSize = `${baseSize * 1.125}px`;
             }
-          }
-        ],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      };
-    }
-
-    function mapToEditPanelValues(config) {
-      return new Map([
-        ["hero_title", config.hero_title || defaultConfig.hero_title],
-        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
-        ["cta_button", config.cta_button || defaultConfig.cta_button]
-      ]);
-    }
-
-    // Menu burger toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Smooth scroll pour les ancres
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+            
+            const heroCTASecondary = document.getElementById('hero-cta-secondary');
+            if (heroCTASecondary) {
+                heroCTASecondary.textContent = config.hero_cta_secondary || defaultConfig.hero_cta_secondary;
+                heroCTASecondary.style.fontSize = `${baseSize * 1.125}px`;
+            }
+            
+            const problemTitle = document.getElementById('problem-title');
+            if (problemTitle) {
+                problemTitle.textContent = config.problem_title || defaultConfig.problem_title;
+                problemTitle.style.fontSize = `${baseSize * 2.5}px`;
+            }
+            
+            const solutionTitle = document.getElementById('solution-title');
+            if (solutionTitle) {
+                const title = config.solution_title || defaultConfig.solution_title;
+                const parts = title.split(':');
+                if (parts.length > 1) {
+                    solutionTitle.innerHTML = `${parts[0]}: <span class="gradient-text">${parts.slice(1).join(':')}</span>`;
+                } else {
+                    solutionTitle.textContent = title;
+                }
+                solutionTitle.style.fontSize = `${baseSize * 2.5}px`;
+            }
+            
+            const finalCTATitle = document.getElementById('final-cta-title');
+            if (finalCTATitle) {
+                const title = config.final_cta_title || defaultConfig.final_cta_title;
+                const parts = title.split('transformation');
+                if (parts.length > 1) {
+                    finalCTATitle.innerHTML = `${parts[0]}<span class="gradient-text">transformation</span>${parts.slice(1).join('transformation')}`;
+                } else {
+                    finalCTATitle.textContent = title;
+                }
+                finalCTATitle.style.fontSize = `${baseSize * 3}px`;
+            }
+            
+            const finalCTAButton = document.getElementById('final-cta-button');
+            if (finalCTAButton) {
+                finalCTAButton.textContent = config.final_cta_button || defaultConfig.final_cta_button;
+                finalCTAButton.style.fontSize = `${baseSize * 1.5}px`;
+            }
+            
+            const h2Elements = document.querySelectorAll('h2:not(#hero-title):not(#problem-title):not(#solution-title):not(#final-cta-title)');
+            h2Elements.forEach(h2 => {
+                h2.style.fontSize = `${baseSize * 2.5}px`;
+            });
+            
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(h3 => {
+                h3.style.fontSize = `${baseSize * 1.5}px`;
+            });
         }
-      });
-    });
 
-    // Initialiser le SDK
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a40c5dc76653cb9',t:'MTc2NDA2OTc5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Special menu toggle for mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const specialMenuItems = document.querySelectorAll('#special-menu .menu-item');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                document.body.classList.toggle('menu-toggled');
+            });
+        }
+
+        // Close special menu when clicking on a menu item
+        specialMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                document.body.classList.remove('menu-toggled');
+            });
+        });
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => {
+                                config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                            set: (value) => {
+                                config.primary_action_color = value;
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                            set: (value) => {
+                                config.secondary_action_color = value;
+                                window.elementSdk.setConfig({ secondary_action_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["hero_title", config.hero_title || defaultConfig.hero_title],
+                    ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+                    ["hero_cta_primary", config.hero_cta_primary || defaultConfig.hero_cta_primary],
+                    ["hero_cta_secondary", config.hero_cta_secondary || defaultConfig.hero_cta_secondary],
+                    ["problem_title", config.problem_title || defaultConfig.problem_title],
+                    ["solution_title", config.solution_title || defaultConfig.solution_title],
+                    ["final_cta_title", config.final_cta_title || defaultConfig.final_cta_title],
+                    ["final_cta_button", config.final_cta_button || defaultConfig.final_cta_button]
+                ])
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b7db72771390bf3',t:'MTc2NzM5MzE3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
