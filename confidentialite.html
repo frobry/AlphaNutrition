@@ -1,383 +1,826 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="h-full">
  <head>
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1254270673126071');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1254270673126071&ev=PageView&noscript=1"
-  /></noscript>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlphaNutrition - Votre Coach Nutrition Personnalisé</title>
+  <title>Politique de Confidentialité - AlphaNutrition</title>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlphaNutrition - Votre Coach Nutrition Personnalisé</title>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confidentialité - AlphaNutrition</title>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-    body {
-      box-sizing: border-box;
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
-    
-    .gradient-bg {
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-      position: relative;
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .gradient-bg::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.045) 0%, transparent 50%);
-      animation: floatGradient 20s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    @keyframes floatGradient {
-      0%, 100% { 
-        transform: translate(0px, 0px) scale(1);
-        opacity: 1;
-      }
-      25% { 
-        transform: translate(30px, -30px) scale(1.05);
-        opacity: 0.8;
-      }
-      50% { 
-        transform: translate(-20px, 20px) scale(0.95);
-        opacity: 1;
-      }
-      75% { 
-        transform: translate(20px, 30px) scale(1.02);
-        opacity: 0.9;
-      }
-    }
-    
-    .content-wrapper {
-      position: relative;
-      z-index: 10;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .main-content {
-      flex: 1;
-      padding-top: 120px;
-      padding-bottom: 60px;
-    }
-    
-    .privacy-section {
-      margin-bottom: 40px;
-      padding: 30px;
-      background: rgba(26, 26, 26, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-    }
-    
-    .privacy-section h2 {
-      color: #9ca3af;
-      font-size: 1.75rem;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    
-    .privacy-section h3 {
-      color: #d1d5db;
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 20px;
-      margin-bottom: 12px;
-    }
-    
-    .privacy-section p, .privacy-section li {
-      color: #e5e7eb;
-      line-height: 1.8;
-      margin-bottom: 12px;
-    }
-    
-    .privacy-section ul {
-      list-style-type: disc;
-      margin-left: 30px;
-      margin-top: 10px;
-    }
-  </style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-title-gradient {
+            background: linear-gradient(90deg, 
+                rgba(0, 0, 0, 1) 0%, 
+                rgba(0, 0, 0, 1) 2%,
+                #60A5FA 20%, 
+                #3B82F6 50%, 
+                #60A5FA 80%,
+                rgba(0, 0, 0, 1) 98%, 
+                rgba(0, 0, 0, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tech-border-glow {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            box-shadow: 0 0 35px rgba(59, 130, 246, 0.12), inset 0 0 25px rgba(59, 130, 246, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-border-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-gradient {
+            background: #000000;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            color: white;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .content-section h3 {
+            color: #93C5FD;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            color: #CBD5E1;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.0625rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul li {
+            color: #CBD5E1;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1.0625rem;
+        }
+
+        .content-section ul li::before {
+            content: "•";
+            color: #60A5FA;
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0.5rem;
+            top: -0.125rem;
+        }
+
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3B82F6;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .highlight-box p {
+            color: #93C5FD;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+            margin: 3rem 0;
+        }
+
+        /* Special Menu Styles */
+        :root {
+            --menu-background-light: rgb(37, 99, 235);
+            --menu-background-dark: rgb(0, 0, 0);
+            
+            --menu-gradient-color-1: rgb(30, 58, 138);
+            --menu-gradient-color-2: rgb(59, 130, 246);
+            --menu-gradient-color-3: rgb(29, 78, 216);
+            --menu-gradient-color-4: rgb(30, 64, 175);
+        }
+
+        @keyframes arc-rotation {
+            from {
+                transform: translate3d(-50%, -50%, 0px) rotate(0deg);
+            }
+            
+            to {
+                transform: translate3d(-50%, -50%, 0px) rotate(360deg);
+            }
+        }
+
+        body.menu-toggled > #special-menu {
+            pointer-events: all; 
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:first-of-type {
+            transform: translate3d(0px, 9px, 0px) rotate(45deg);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:nth-of-type(2) {
+            opacity: 0;
+            transform: translate3d(-5px, 0px, 0px);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:nth-of-type(3) {
+            transform: translate3d(0px, -9px, 0px) rotate(-45deg);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-label > .word {
+            opacity: 0;
+            transform: translate3d(-30%, 0px, 0px) skew(20deg) scaleX(1.2);  
+            transition: opacity 250ms cubic-bezier(.71, .19, .87, .33), 
+                transform 250ms cubic-bezier(.71, .19, .87, .33);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-label > .word:nth-of-type(2) {
+            transition-delay: 100ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-gradient {
+            height: 200vmax;
+            opacity: 1;
+            transform: translate3d(-50%, -50%, 0px);
+            transition: height 600ms cubic-bezier(.58, .2, .62, .93), 
+                width 600ms cubic-bezier(.58, .2, .62, .93), 
+                transform 600ms cubic-bezier(.58, .2, .62, .93), 
+                opacity 400ms;
+            width: 200vmax;
+        }
+
+        body.menu-toggled > #special-menu > #menu-gradient-blur {
+            opacity: 1; 
+        }
+
+        body.menu-toggled > #special-menu > #menu-arcs-wrapper {
+            opacity: 1;
+            transform: scale(1);
+            transition: transform 600ms cubic-bezier(.16, .68, .25, .83), 
+                opacity 600ms cubic-bezier(.87, .12, .92, .39); 
+        }
+
+        body.menu-toggled > #special-menu > #menu-items {
+            opacity: 1;
+            pointer-events: all;
+            transform: translate3d(0px, 0px, 0px);
+            transition: opacity 600ms 200ms, transform 600ms 200ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item {
+            opacity: 1;
+            transform: translate3d(0px, 0px, 0px);
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(1) {
+            transition: opacity 600ms 300ms, transform 600ms 300ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(2) {
+            transition: opacity 600ms 350ms, transform 600ms 350ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(3) {
+            transition: opacity 600ms 400ms, transform 600ms 400ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(4) {
+            transition: opacity 600ms 450ms, transform 600ms 450ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(5) {
+            transition: opacity 600ms 500ms, transform 600ms 500ms;
+        }
+
+        #special-menu {
+            height: 100%;
+            left: 0;
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+        }
+
+        #menu-toggle {
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            gap: 12px;
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            z-index: 2;
+        }
+
+        #menu-toggle-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            height: 24px;
+            justify-content: center;
+            width: 30px;
+        }
+
+        #menu-toggle-icon > span {
+            background-color: white;
+            border-radius: 2px;
+            height: 3px;
+            transition: opacity 400ms, transform 400ms;
+            width: 100%;
+        }
+
+        #menu-toggle-label {
+            display: flex;
+            gap: 4px;
+            overflow: hidden;
+        }
+
+        #menu-toggle-label > .word {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 400ms 200ms, transform 400ms 200ms;
+        }
+
+        #menu-toggle-label > .word:nth-of-type(2) {
+            transition-delay: 300ms;
+        }
+
+        #menu-gradient {
+            background: radial-gradient(
+                circle at center, 
+                var(--menu-gradient-color-1) 0%, 
+                var(--menu-gradient-color-2) 25%, 
+                var(--menu-gradient-color-3) 50%, 
+                var(--menu-gradient-color-4) 75%, 
+                var(--menu-background-dark) 100%
+            );
+            height: 0vmax;
+            left: 50%;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px) scale(0.5);
+            transition: height 600ms cubic-bezier(.58, .2, .62, .93), 
+                width 600ms cubic-bezier(.58, .2, .62, .93), 
+                transform 600ms cubic-bezier(.58, .2, .62, .93), 
+                opacity 600ms 200ms;
+            width: 0vmax;
+            z-index: -1;
+        }
+
+        #menu-gradient-blur {
+            backdrop-filter: blur(10px);
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transition: opacity 600ms;
+            width: 100%;
+            z-index: -1;
+        }
+
+        #menu-arcs-wrapper {
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: scale(0.8);
+            transition: transform 600ms 200ms, opacity 600ms;
+            width: 100%;
+            z-index: 1;
+        }
+
+        #menu-arcs {
+            animation: arc-rotation 20s linear infinite;
+            height: 150vmax;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px);
+            width: 150vmax;
+        }
+
+        .menu-arc {
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            border-radius: 50%;
+            height: 100%;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px);
+            width: 100%;
+        }
+
+        .menu-arc:nth-of-type(2) {
+            height: 75%;
+            width: 75%;
+        }
+
+        .menu-arc:nth-of-type(3) {
+            height: 50%;
+            width: 50%;
+        }
+
+        #menu-items {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            height: 100%;
+            justify-content: center;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: translate3d(0px, -30px, 0px);
+            transition: opacity 400ms, transform 400ms;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .menu-item {
+            color: white;
+            cursor: pointer;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            opacity: 0;
+            text-transform: uppercase;
+            transform: translate3d(0px, 20px, 0px);
+            transition: color 300ms, opacity 400ms, transform 400ms;
+        }
+
+        .menu-item:hover {
+            color: rgb(96, 165, 250);
+        }
+
+        /* Hide special menu on desktop */
+        @media (min-width: 768px) {
+            #special-menu {
+                display: none;
+            }
+        }
+    </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="gradient-bg text-white"><!-- Header avec navigation -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800">
-   <nav class="max-w-6xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between"><!-- Logo -->
-     <div class="text-2xl font-bold text-white">
-      AlphaNutrition
-     </div><!-- Menu desktop -->
-     <div class="hidden md:flex space-x-8"><a href="/index.html" class="text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="/index.html#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="/index.html#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="/index.html#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
-     </div><!-- Menu burger mobile --> <button id="menu-toggle" class="md:hidden text-white">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg></button>
-    </div><!-- Menu mobile -->
-    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700">
-     <div class="flex flex-col space-y-4 pt-4"><a href="/index.html" class="text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="/index.html#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="/index.html#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="/index.html#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
+ <body class="h-full overflow-auto">
+  <div id="app-wrapper" class="w-full h-full"><!-- Special Mobile Menu -->
+   <div id="special-menu">
+    <div id="menu-toggle">
+     <div id="menu-toggle-label"><span class="word">Menu</span>
+     </div>
+     <div id="menu-toggle-icon"><span></span> <span></span> <span></span>
      </div>
     </div>
-   </nav>
-  </header>
-  <div class="content-wrapper"><!-- Main Content -->
-   <main class="main-content px-6">
-    <div class="max-w-4xl mx-auto"><!-- En-tête -->
-     <div class="text-center mb-12">
-      <div class="text-6xl mb-6">
-       🔒
+    <div id="menu-gradient"></div>
+    <div id="menu-gradient-blur"></div>
+    <div id="menu-arcs-wrapper">
+     <div id="menu-arcs">
+      <div class="menu-arc"></div>
+      <div class="menu-arc"></div>
+      <div class="menu-arc"></div>
+     </div>
+    </div>
+    <div id="menu-items"><a href="https://nutrition.frobry.com/index.html" class="menu-item">Accueil</a> <a href="https://nutrition.frobry.com/faq.html" class="menu-item">FAQ</a> <a href="https://nutrition.frobry.com/assistance.html" class="menu-item">Assistance</a> <a href="https://nutrition.frobry.com/confidentialite.html" class="menu-item" style="font-size: 32px;">Confidentialité</a> <a href="https://nutrition.frobry.com/suppcompte.html" class="menu-item" style="font-size: 32px;">Suppression</a>
+    </div>
+   </div><!-- Navigation Menu -->
+   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-xl bg-black bg-opacity-40 shadow-2xl" style="box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15);">
+    <div class="max-w-7xl mx-auto px-6 py-5">
+     <div class="flex items-center justify-between"><!-- Logo --> <a href="https://nutrition.frobry.com/index.html" class="text-2xl font-black gradient-text hover:opacity-80 transition-opacity"> AlphaNutrition </a> <!-- Menu Items -->
+      <div class="hidden md:flex items-center space-x-1"><a href="https://nutrition.frobry.com/index.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> Accueil </a> <a href="https://nutrition.frobry.com/faq.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> FAQ </a> <a href="https://nutrition.frobry.com/assistance.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> Assistance </a>
+      </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+       </svg></button>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 space-y-2"><a href="https://nutrition.frobry.com/index.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> Accueil </a> <a href="https://nutrition.frobry.com/faq.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> FAQ </a> <a href="https://nutrition.frobry.com/assistance.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> Assistance </a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="hero-gradient min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden" style="padding-top: 180px; min-height: 50vh;"><!-- Decorative Elements -->
+    <div class="absolute top-20 right-20 w-96 h-96 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
+    <div class="max-w-6xl mx-auto text-center relative z-10 fade-in">
+     <h1 id="page-title" class="text-5xl md:text-7xl font-black mb-6 leading-tight hero-title-gradient">Politique de Confidentialité</h1>
+     <p id="page-subtitle" class="text-xl md:text-2xl text-blue-100 mb-4 max-w-4xl mx-auto leading-relaxed font-light">Votre vie privée est notre priorité</p>
+     <p id="last-updated" class="text-lg text-slate-400 font-medium">Dernière mise à jour : 02 janvier 2026</p>
+    </div>
+   </section><!-- Content Section -->
+   <section class="py-24 px-6" style="background-color: #0a0a0a;">
+    <div class="max-w-4xl mx-auto"><!-- Introduction -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg> Introduction</h2>
+       <p>AlphaNutrition accorde une importance majeure à la protection de vos données personnelles et au respect de votre vie privée. Cette politique de confidentialité explique de manière transparente comment vos données sont collectées, utilisées, stockées et protégées lorsque vous utilisez l'application.</p>
+       <div class="highlight-box">
+        <p>En utilisant AlphaNutrition, vous acceptez les pratiques décrites ci-dessous.</p>
+       </div>
       </div>
-      <h1 id="page-title" class="text-5xl font-bold mb-4">Confidentialité de l'application</h1>
-      <p id="last-update" class="text-gray-400 text-lg">Dernière mise à jour : 15 janvier 2025</p>
-     </div><!-- Introduction -->
-     <div class="privacy-section">
-      <h2>Introduction</h2>
-      <p>Bienvenue sur AlphaNutrition. Nous accordons une importance primordiale à la protection de vos données personnelles et au respect de votre vie privée. Cette politique de confidentialité vous informe de manière transparente sur la collecte, l'utilisation, le stockage et la protection de vos informations personnelles lorsque vous utilisez notre application mobile.</p>
-      <p>En utilisant AlphaNutrition, vous acceptez les pratiques décrites dans cette politique de confidentialité. Nous vous invitons à la lire attentivement.</p>
-     </div><!-- Collecte des données -->
-     <div class="privacy-section">
-      <h2>1. Données collectées</h2>
-      <p>Nous collectons différents types de données pour vous offrir un service personnalisé et de qualité :</p>
-      <h3>1.1 Données fournies directement par vous</h3>
-      <ul>
-       <li><strong>Informations de profil :</strong> nom, prénom, adresse email, date de naissance, sexe</li>
-       <li><strong>Informations de santé :</strong> poids, taille, objectifs nutritionnels, allergies alimentaires, restrictions alimentaires, historique de santé pertinent</li>
-       <li><strong>Données alimentaires :</strong> repas enregistrés, photos de plats, produits scannés, préférences alimentaires</li>
-       <li><strong>Données de progression :</strong> évolution du poids, suivi des objectifs, statistiques d'utilisation</li>
-      </ul>
-      <h3>1.2 Données collectées automatiquement</h3>
-      <ul>
-       <li><strong>Données techniques :</strong> type d'appareil, système d'exploitation, identifiant unique de l'appareil, adresse IP</li>
-       <li><strong>Données d'utilisation :</strong> pages consultées, fonctionnalités utilisées, durée des sessions, interactions avec l'application</li>
-       <li><strong>Données de localisation :</strong> localisation approximative (uniquement si vous l'autorisez)</li>
-      </ul>
-     </div><!-- Utilisation des données -->
-     <div class="privacy-section">
-      <h2>2. Utilisation de vos données</h2>
-      <p>Vos données personnelles sont utilisées exclusivement dans les buts suivants :</p>
-      <ul>
-       <li><strong>Personnalisation :</strong> créer des plans alimentaires adaptés à vos besoins, objectifs et préférences</li>
-       <li><strong>Amélioration du service :</strong> analyser l'utilisation de l'application pour optimiser nos fonctionnalités</li>
-       <li><strong>Communication :</strong> vous envoyer des notifications importantes, des conseils nutritionnels et des mises à jour de l'application</li>
-       <li><strong>Assistance :</strong> répondre à vos questions et résoudre les problèmes techniques</li>
-       <li><strong>Sécurité :</strong> détecter et prévenir les fraudes, abus ou activités illégales</li>
-       <li><strong>Conformité légale :</strong> respecter nos obligations légales et réglementaires</li>
-      </ul>
-      <p><strong>Important :</strong> Nous n'utilisons jamais vos données de santé à des fins publicitaires ou commerciales. Vos informations ne sont jamais vendues à des tiers.</p>
-     </div><!-- Partage des données -->
-     <div class="privacy-section">
-      <h2>3. Partage de vos données</h2>
-      <p>Nous ne partageons vos données personnelles qu'avec :</p>
-      <ul>
-       <li><strong>Prestataires de services :</strong> hébergeurs cloud, services d'analyse, systèmes de paiement (tous soumis à des obligations strictes de confidentialité)</li>
-       <li><strong>Autorités légales :</strong> uniquement si requis par la loi ou dans le cadre d'une procédure judiciaire</li>
-      </ul>
-      <p>Nous ne vendons, ne louons et ne partageons jamais vos données avec des tiers à des fins marketing sans votre consentement explicite.</p>
-     </div><!-- Sécurité -->
-     <div class="privacy-section">
-      <h2>4. Sécurité de vos données</h2>
-      <p>La sécurité de vos données est notre priorité absolue. Nous mettons en œuvre des mesures techniques et organisationnelles robustes :</p>
-      <ul>
-       <li><strong>Chiffrement :</strong> toutes les données sensibles sont chiffrées en transit (SSL/TLS) et au repos</li>
-       <li><strong>Accès restreint :</strong> seul le personnel autorisé peut accéder à vos données, dans le cadre strict de leurs fonctions</li>
-       <li><strong>Surveillance :</strong> nos systèmes sont surveillés 24h/24 pour détecter toute activité suspecte</li>
-       <li><strong>Mises à jour régulières :</strong> nos protocoles de sécurité sont constamment mis à jour</li>
-       <li><strong>Audits de sécurité :</strong> nous réalisons régulièrement des audits de sécurité</li>
-      </ul>
-      <p>Malgré nos efforts, aucun système n'est infaillible à 100%. En cas de violation de données, nous vous en informerons dans les meilleurs délais conformément à la réglementation.</p>
-     </div><!-- Cookies -->
-     <div class="privacy-section">
-      <h2>5. Cookies et technologies similaires</h2>
-      <p>Notre application peut utiliser des cookies et technologies similaires pour :</p>
-      <ul>
-       <li>Maintenir votre session active</li>
-       <li>Mémoriser vos préférences</li>
-       <li>Analyser l'utilisation de l'application</li>
-       <li>Améliorer votre expérience utilisateur</li>
-      </ul>
-      <p>Vous pouvez gérer vos préférences de cookies dans les paramètres de l'application.</p>
-     </div><!-- Droits des utilisateurs -->
-     <div class="privacy-section">
-      <h2>6. Vos droits</h2>
-      <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
-      <ul>
-       <li><strong>Droit d'accès :</strong> obtenir une copie de vos données personnelles</li>
-       <li><strong>Droit de rectification :</strong> corriger vos données inexactes ou incomplètes</li>
-       <li><strong>Droit à l'effacement :</strong> demander la suppression de vos données (« droit à l'oubli »)</li>
-       <li><strong>Droit à la limitation :</strong> limiter le traitement de vos données dans certaines circonstances</li>
-       <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré et couramment utilisé</li>
-       <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données pour des motifs légitimes</li>
-       <li><strong>Droit de retirer votre consentement :</strong> à tout moment, sans affecter la licéité du traitement antérieur</li>
-      </ul>
-      <p>Pour exercer vos droits, contactez-nous à : <a href="mailto:app.alphagym@gmail.com" class="text-gray-300 hover:text-white underline">app.alphagym@gmail.com</a></p>
-      <p>Nous répondons à toutes les demandes dans un délai maximum de 30 jours.</p>
-     </div><!-- Conservation -->
-     <div class="privacy-section">
-      <h2>7. Conservation des données</h2>
-      <p>Nous conservons vos données personnelles uniquement pendant la durée nécessaire aux finalités pour lesquelles elles ont été collectées :</p>
-      <ul>
-       <li><strong>Compte actif :</strong> pendant toute la durée d'utilisation de l'application</li>
-       <li><strong>Compte inactif :</strong> suppression automatique après 3 ans d'inactivité (sauf obligation légale)</li>
-       <li><strong>Demande de suppression :</strong> suppression immédiate sur demande, sauf obligations légales de conservation</li>
-      </ul>
-     </div><!-- Mineurs -->
-     <div class="privacy-section">
-      <h2>8. Mineurs</h2>
-      <p>AlphaNutrition n'est pas destinée aux personnes de moins de 16 ans. Nous ne collectons pas sciemment de données personnelles auprès de mineurs de moins de 16 ans. Si vous êtes parent ou tuteur légal et que vous découvrez que votre enfant nous a fourni des données personnelles, veuillez nous contacter immédiatement.</p>
-     </div><!-- Modifications -->
-     <div class="privacy-section">
-      <h2>9. Modifications de cette politique</h2>
-      <p>Nous pouvons mettre à jour cette politique de confidentialité occasionnellement pour refléter les changements dans nos pratiques ou pour des raisons légales. Toute modification sera publiée sur cette page avec une date de mise à jour révisée.</p>
-      <p>Les changements significatifs vous seront notifiés par email ou via une notification dans l'application. Nous vous encourageons à consulter régulièrement cette page.</p>
-     </div><!-- Contact -->
-     <div class="privacy-section">
-      <h2>10. Nous contacter</h2>
-      <p>Pour toute question concernant cette politique de confidentialité ou vos données personnelles, vous pouvez nous contacter :</p>
-      <ul>
-       <li><strong>Email :</strong> <a href="mailto:app.alphagym@gmail.com" class="text-gray-300 hover:text-white underline">app.alphagym@gmail.com</a></li>
-       <li><strong>Délai de réponse :</strong> 24 à 48 heures</li>
-      </ul>
-      <p>Vous pouvez également introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) si vous estimez que vos droits ne sont pas respectés.</p>
-     </div><!-- Acceptation -->
-     <div class="privacy-section">
-      <h2>11. Acceptation de cette politique</h2>
-      <p>En utilisant AlphaNutrition, vous reconnaissez avoir lu et compris cette politique de confidentialité et vous acceptez la collecte, l'utilisation et le partage de vos informations conformément à cette politique.</p>
-      <p>Si vous n'acceptez pas cette politique, veuillez ne pas utiliser notre application.</p>
+     </div>
+     <div class="divider"></div><!-- Section 1 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg> 1. Données collectées</h2>
+       <h3>Données fournies par l'utilisateur :</h3>
+       <ul>
+        <li>Informations de profil : nom, prénom, adresse email, date de naissance, sexe</li>
+        <li>Données de santé et nutritionnelles : poids, taille, objectifs nutritionnels, allergies, restrictions alimentaires, informations de suivi</li>
+        <li>Données alimentaires : repas enregistrés, photos de plats, produits scannés</li>
+        <li>Données de progression : évolution du poids, statistiques, suivi des objectifs</li>
+       </ul>
+       <h3>Données collectées automatiquement :</h3>
+       <ul>
+        <li>Données techniques : type d'appareil, système d'exploitation, identifiant de l'appareil, adresse IP</li>
+        <li>Données d'utilisation : fonctionnalités utilisées, durée des sessions, interactions</li>
+        <li>Localisation approximative (uniquement avec votre autorisation)</li>
+       </ul>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 2 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+        </svg> 2. Utilisation des données</h2>
+       <p>Vos données sont utilisées uniquement pour :</p>
+       <ul>
+        <li>Personnaliser votre expérience et vos plans nutritionnels</li>
+        <li>Améliorer les fonctionnalités et la qualité de l'application</li>
+        <li>Vous envoyer des notifications, conseils et mises à jour</li>
+        <li>Fournir une assistance utilisateur et résoudre les problèmes techniques</li>
+        <li>Assurer la sécurité et prévenir les abus</li>
+        <li>Respecter nos obligations légales</li>
+       </ul>
+       <div class="highlight-box">
+        <p>Important : Les données de santé ne sont jamais utilisées à des fins publicitaires et ne sont jamais vendues.</p>
+       </div>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 3 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+        </svg> 3. Partage des données</h2>
+       <p>Vos données peuvent être partagées uniquement avec :</p>
+       <ul>
+        <li>Des prestataires techniques (hébergement, analyse, paiement), soumis à des obligations strictes de confidentialité</li>
+        <li>Les autorités légales, si la loi l'exige</li>
+       </ul>
+       <div class="highlight-box">
+        <p>Aucune donnée n'est vendue, louée ou partagée à des fins marketing sans votre consentement.</p>
+       </div>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 4 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+        </svg> 4. Sécurité des données</h2>
+       <p>Nous mettons en place des mesures de sécurité strictes :</p>
+       <ul>
+        <li>Chiffrement des données en transit et au repos</li>
+        <li>Accès limité aux seules personnes autorisées</li>
+        <li>Surveillance continue des systèmes</li>
+        <li>Mises à jour régulières et audits de sécurité</li>
+       </ul>
+       <p>En cas de violation de données, vous serez informé conformément à la réglementation.</p>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 5 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg> 5. Cookies et technologies similaires</h2>
+       <p>L'application peut utiliser des technologies similaires aux cookies afin de :</p>
+       <ul>
+        <li>Maintenir votre session</li>
+        <li>Mémoriser vos préférences</li>
+        <li>Analyser l'utilisation de l'application</li>
+        <li>Améliorer l'expérience utilisateur</li>
+       </ul>
+       <p>Les préférences peuvent être gérées dans les paramètres de l'application.</p>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 6 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg> 6. Vos droits (RGPD)</h2>
+       <p>Vous disposez des droits suivants :</p>
+       <ul>
+        <li>Accès, rectification et suppression de vos données</li>
+        <li>Limitation et opposition au traitement</li>
+        <li>Portabilité des données</li>
+        <li>Retrait du consentement à tout moment</li>
+       </ul>
+       <div class="highlight-box">
+        <p>Contact : app.alphagym@gmail.com<br>
+         Délai de réponse maximum : 30 jours.</p>
+       </div>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 7 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg> 7. Conservation des données</h2>
+       <ul>
+        <li>Données conservées tant que le compte est actif</li>
+        <li>Suppression après 3 ans d'inactivité</li>
+        <li>Suppression immédiate sur demande, sauf obligation légale</li>
+       </ul>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 8 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg> 8. Mineurs</h2>
+       <p>AlphaNutrition n'est pas destinée aux personnes de moins de 16 ans. Aucune donnée de mineur n'est collectée volontairement.</p>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 9 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+        </svg> 9. Modifications</h2>
+       <p>Cette politique peut être mise à jour. Toute modification sera indiquée avec une date révisée et, si nécessaire, notifiée dans l'application.</p>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 10 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg> 10. Contact</h2>
+       <ul>
+        <li>Email : <a href="mailto:app.alphagym@gmail.com" class="text-blue-400 hover:text-blue-300 transition-colors">app.alphagym@gmail.com</a></li>
+        <li>Délai de réponse : 24 à 48 heures</li>
+       </ul>
+       <p>Vous pouvez également saisir la CNIL si vous estimez que vos droits ne sont pas respectés.</p>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Section 11 -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg> 11. Acceptation</h2>
+       <p>En utilisant AlphaNutrition, vous reconnaissez avoir lu et accepté cette politique de confidentialité.</p>
+       <div class="highlight-box">
+        <p>Si vous n'êtes pas d'accord, veuillez ne pas utiliser l'application.</p>
+       </div>
+      </div>
      </div>
     </div>
-   </main><!-- Footer -->
-   <footer class="px-6 py-8 text-center text-gray-500 text-sm border-t border-gray-800">
-    <p>© 2025 AlphaNutrition. Tous droits réservés.</p>
-    <p class="mt-4"><a href="/confidentialite.html" class="text-white font-bold">Confidentialité de l'application</a></p>
+   </section><!-- Footer -->
+   <footer class="py-12 px-6" style="background-color: #050505;">
+    <div class="max-w-6xl mx-auto text-center">
+     <div class="text-3xl font-bold gradient-text mb-4">
+      AlphaNutrition
+     </div>
+     <p class="text-slate-400 mb-6">La nutrition intelligente et personnalisée</p>
+     <div class="flex justify-center flex-wrap gap-x-8 gap-y-3 text-slate-400 text-sm"><a href="https://nutrition.frobry.com/faq.html" class="hover:text-blue-400 transition-colors">FAQ</a> <a href="https://nutrition.frobry.com/assistance.html" class="hover:text-blue-400 transition-colors">Assistance</a> <a href="https://nutrition.frobry.com/confidentialite.html" class="hover:text-blue-400 transition-colors">Confidentialité</a> <a href="https://nutrition.frobry.com/suppcompte.html" class="hover:text-blue-400 transition-colors">Suppression du compte</a>
+     </div>
+     <p class="text-slate-500 text-sm mt-8">© 2026 AlphaNutrition. Tous droits réservés.</p>
+    </div>
    </footer>
   </div>
   <script>
-    const defaultConfig = {
-      page_title: "Confidentialité de l'application",
-      last_update: "Dernière mise à jour : 15 janvier 2025",
-      background_color: "#0a0a0a",
-      surface_color: "#1a1a1a",
-      text_color: "#ffffff"
-    };
+        const defaultConfig = {
+            background_color: "#000000",
+            surface_color: "#FFFFFF",
+            text_color: "#1E293B",
+            primary_action_color: "#3B82F6",
+            secondary_action_color: "#60A5FA",
+            font_family: "Inter",
+            font_size: 16,
+            page_title: "Politique de Confidentialité",
+            page_subtitle: "Votre vie privée est notre priorité",
+            last_updated: "Dernière mise à jour : 02 janvier 2026"
+        };
 
-    async function onConfigChange(config) {
-      document.getElementById('page-title').textContent = config.page_title || defaultConfig.page_title;
-      document.getElementById('last-update').textContent = config.last_update || defaultConfig.last_update;
-
-      const backgroundColor = config.background_color || defaultConfig.background_color;
-      const surfaceColor = config.surface_color || defaultConfig.surface_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-
-      document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${surfaceColor} 100%)`;
-      document.body.style.color = textColor;
-    }
-
-    function mapToCapabilities(config) {
-      return {
-        recolorables: [
-          {
-            get: () => config.background_color || defaultConfig.background_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.background_color = value;
-                window.elementSdk.setConfig({ background_color: value });
-              }
+        async function onConfigChange(config) {
+            const baseFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = `${baseFont}, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+            
+            document.body.style.fontFamily = baseFontStack;
+            document.body.style.fontSize = `${baseSize}px`;
+            
+            const heroSections = document.querySelectorAll('.hero-gradient');
+            heroSections.forEach(section => {
+                section.style.background = backgroundColor;
+            });
+            
+            const pageTitle = document.getElementById('page-title');
+            if (pageTitle) {
+                pageTitle.textContent = config.page_title || defaultConfig.page_title;
+                pageTitle.style.fontSize = `${baseSize * 3.5}px`;
+                pageTitle.style.background = `linear-gradient(90deg, 
+                    ${backgroundColor} 0%, 
+                    ${backgroundColor} 2%,
+                    ${secondaryActionColor} 20%, 
+                    ${primaryActionColor} 50%, 
+                    ${secondaryActionColor} 80%,
+                    ${backgroundColor} 98%, 
+                    ${backgroundColor} 100%)`;
+                pageTitle.style.webkitBackgroundClip = 'text';
+                pageTitle.style.webkitTextFillColor = 'transparent';
+                pageTitle.style.backgroundClip = 'text';
             }
-          },
-          {
-            get: () => config.surface_color || defaultConfig.surface_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.surface_color = value;
-                window.elementSdk.setConfig({ surface_color: value });
-              }
+            
+            const pageSubtitle = document.getElementById('page-subtitle');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+                pageSubtitle.style.fontSize = `${baseSize * 1.25}px`;
             }
-          },
-          {
-            get: () => config.text_color || defaultConfig.text_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.text_color = value;
-                window.elementSdk.setConfig({ text_color: value });
-              }
+            
+            const lastUpdated = document.getElementById('last-updated');
+            if (lastUpdated) {
+                lastUpdated.textContent = config.last_updated || defaultConfig.last_updated;
+                lastUpdated.style.fontSize = `${baseSize * 1.125}px`;
             }
-          }
-        ],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      };
-    }
+        }
 
-    function mapToEditPanelValues(config) {
-      return new Map([
-        ["page_title", config.page_title || defaultConfig.page_title],
-        ["last_update", config.last_update || defaultConfig.last_update]
-      ]);
-    }
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-    // Menu burger toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
+        // Special menu toggle for mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const specialMenuItems = document.querySelectorAll('#special-menu .menu-item');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                document.body.classList.toggle('menu-toggled');
+            });
+        }
 
-    // Initialiser le SDK
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99ccd659b6227854',t:'MTc2Mjg1NDEyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        // Close special menu when clicking on a menu item
+        specialMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                document.body.classList.remove('menu-toggled');
+            });
+        });
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => {
+                                config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                            set: (value) => {
+                                config.primary_action_color = value;
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                            set: (value) => {
+                                config.secondary_action_color = value;
+                                window.elementSdk.setConfig({ secondary_action_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["page_title", config.page_title || defaultConfig.page_title],
+                    ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                    ["last_updated", config.last_updated || defaultConfig.last_updated]
+                ])
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b7def5675c20bf3',t:'MTc2NzM5NTQ4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
