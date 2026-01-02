@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="fr" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - AlphaNutrition</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-title-gradient {
+            background: linear-gradient(90deg, 
+                rgba(0, 0, 0, 1) 0%, 
+                rgba(0, 0, 0, 1) 2%,
+                #60A5FA 20%, 
+                #3B82F6 50%, 
+                #60A5FA 80%,
+                rgba(0, 0, 0, 1) 98%, 
+                rgba(0, 0, 0, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .tech-border-glow {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            box-shadow: 0 0 35px rgba(59, 130, 246, 0.12), inset 0 0 25px rgba(59, 130, 246, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-border-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15), inset 0 0 30px rgba(59, 130, 246, 0.05);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+            opacity: 0;
+            padding: 0 1.5rem;
+        }
+        
+        .faq-answer.active {
+            max-height: 1000px;
+            opacity: 1;
+            padding: 1.5rem;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-gradient {
+            background: #000000;
+        }
+
+        /* Special Menu Styles */
+        :root {
+            --menu-background-light: rgb(37, 99, 235);
+            --menu-background-dark: rgb(0, 0, 0);
+            
+            --menu-gradient-color-1: rgb(30, 58, 138);
+            --menu-gradient-color-2: rgb(59, 130, 246);
+            --menu-gradient-color-3: rgb(29, 78, 216);
+            --menu-gradient-color-4: rgb(30, 64, 175);
+        }
+
+        @keyframes arc-rotation {
+            from {
+                transform: translate3d(-50%, -50%, 0px) rotate(0deg);
+            }
+            
+            to {
+                transform: translate3d(-50%, -50%, 0px) rotate(360deg);
+            }
+        }
+
+        body.menu-toggled > #special-menu {
+            pointer-events: all; 
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:first-of-type {
+            transform: translate3d(0px, 9px, 0px) rotate(45deg);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:nth-of-type(2) {
+            opacity: 0;
+            transform: translate3d(-5px, 0px, 0px);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:nth-of-type(3) {
+            transform: translate3d(0px, -9px, 0px) rotate(-45deg);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-label > .word {
+            opacity: 0;
+            transform: translate3d(-30%, 0px, 0px) skew(20deg) scaleX(1.2);  
+            transition: opacity 250ms cubic-bezier(.71, .19, .87, .33), 
+                transform 250ms cubic-bezier(.71, .19, .87, .33);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-label > .word:nth-of-type(2) {
+            transition-delay: 100ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-gradient {
+            height: 200vmax;
+            opacity: 1;
+            transform: translate3d(-50%, -50%, 0px);
+            transition: height 600ms cubic-bezier(.58, .2, .62, .93), 
+                width 600ms cubic-bezier(.58, .2, .62, .93), 
+                transform 600ms cubic-bezier(.58, .2, .62, .93), 
+                opacity 400ms;
+            width: 200vmax;
+        }
+
+        body.menu-toggled > #special-menu > #menu-gradient-blur {
+            opacity: 1; 
+        }
+
+        body.menu-toggled > #special-menu > #menu-arcs-wrapper {
+            opacity: 1;
+            transform: scale(1);
+            transition: transform 600ms cubic-bezier(.16, .68, .25, .83), 
+                opacity 600ms cubic-bezier(.87, .12, .92, .39); 
+        }
+
+        body.menu-toggled > #special-menu > #menu-items {
+            opacity: 1;
+            pointer-events: all;
+            transform: translate3d(0px, 0px, 0px);
+            transition: opacity 600ms 200ms, transform 600ms 200ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item {
+            opacity: 1;
+            transform: translate3d(0px, 0px, 0px);
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(1) {
+            transition: opacity 600ms 300ms, transform 600ms 300ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(2) {
+            transition: opacity 600ms 350ms, transform 600ms 350ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(3) {
+            transition: opacity 600ms 400ms, transform 600ms 400ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(4) {
+            transition: opacity 600ms 450ms, transform 600ms 450ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(5) {
+            transition: opacity 600ms 500ms, transform 600ms 500ms;
+        }
+
+        #special-menu {
+            height: 100%;
+            left: 0;
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+        }
+
+        #menu-toggle {
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            gap: 12px;
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            z-index: 2;
+        }
+
+        #menu-toggle-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            height: 24px;
+            justify-content: center;
+            width: 30px;
+        }
+
+        #menu-toggle-icon > span {
+            background-color: white;
+            border-radius: 2px;
+            height: 3px;
+            transition: opacity 400ms, transform 400ms;
+            width: 100%;
+        }
+
+        #menu-toggle-label {
+            display: flex;
+            gap: 4px;
+            overflow: hidden;
+        }
+
+        #menu-toggle-label > .word {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 400ms 200ms, transform 400ms 200ms;
+        }
+
+        #menu-toggle-label > .word:nth-of-type(2) {
+            transition-delay: 300ms;
+        }
+
+        #menu-gradient {
+            background: radial-gradient(
+                circle at center, 
+                var(--menu-gradient-color-1) 0%, 
+                var(--menu-gradient-color-2) 25%, 
+                var(--menu-gradient-color-3) 50%, 
+                var(--menu-gradient-color-4) 75%, 
+                var(--menu-background-dark) 100%
+            );
+            height: 0vmax;
+            left: 50%;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px) scale(0.5);
+            transition: height 600ms cubic-bezier(.58, .2, .62, .93), 
+                width 600ms cubic-bezier(.58, .2, .62, .93), 
+                transform 600ms cubic-bezier(.58, .2, .62, .93), 
+                opacity 600ms 200ms;
+            width: 0vmax;
+            z-index: -1;
+        }
+
+        #menu-gradient-blur {
+            backdrop-filter: blur(10px);
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transition: opacity 600ms;
+            width: 100%;
+            z-index: -1;
+        }
+
+        #menu-arcs-wrapper {
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: scale(0.8);
+            transition: transform 600ms 200ms, opacity 600ms;
+            width: 100%;
+            z-index: 1;
+        }
+
+        #menu-arcs {
+            animation: arc-rotation 20s linear infinite;
+            height: 150vmax;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px);
+            width: 150vmax;
+        }
+
+        .menu-arc {
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            border-radius: 50%;
+            height: 100%;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px);
+            width: 100%;
+        }
+
+        .menu-arc:nth-of-type(2) {
+            height: 75%;
+            width: 75%;
+        }
+
+        .menu-arc:nth-of-type(3) {
+            height: 50%;
+            width: 50%;
+        }
+
+        #menu-items {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            height: 100%;
+            justify-content: center;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: translate3d(0px, -30px, 0px);
+            transition: opacity 400ms, transform 400ms;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .menu-item {
+            color: white;
+            cursor: pointer;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            opacity: 0;
+            text-transform: uppercase;
+            transform: translate3d(0px, 20px, 0px);
+            transition: color 300ms, opacity 400ms, transform 400ms;
+        }
+
+        .menu-item:hover {
+            color: rgb(96, 165, 250);
+        }
+
+        /* Hide special menu on desktop */
+        @media (min-width: 768px) {
+            #special-menu {
+                display: none;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto">
+  <div id="app-wrapper" class="w-full h-full"><!-- Special Mobile Menu -->
+   <div id="special-menu">
+    <div id="menu-toggle">
+     <div id="menu-toggle-label"><span class="word">Menu</span>
+     </div>
+     <div id="menu-toggle-icon"><span></span> <span></span> <span></span>
+     </div>
+    </div>
+    <div id="menu-gradient"></div>
+    <div id="menu-gradient-blur"></div>
+    <div id="menu-arcs-wrapper">
+     <div id="menu-arcs">
+      <div class="menu-arc"></div>
+      <div class="menu-arc"></div>
+      <div class="menu-arc"></div>
+     </div>
+    </div>
+    <div id="menu-items"><a href="https://nutrition.frobry.com/index.html" class="menu-item">Accueil</a> <a href="https://nutrition.frobry.com/faq.html" class="menu-item">FAQ</a> <a href="https://nutrition.frobry.com/assistance.html" class="menu-item">Assistance</a> <a href="https://nutrition.frobry.com/confidentialite.html" class="menu-item" style="font-size: 32px;">Confidentialité</a> <a href="https://nutrition.frobry.com/suppcompte.html" class="menu-item" style="font-size: 32px;">Suppression</a>
+    </div>
+   </div><!-- Navigation Menu -->
+   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-xl bg-black bg-opacity-40 shadow-2xl" style="box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15);">
+    <div class="max-w-7xl mx-auto px-6 py-5">
+     <div class="flex items-center justify-between"><!-- Logo --> <a href="https://nutrition.frobry.com/index.html" class="text-2xl font-black gradient-text hover:opacity-80 transition-opacity"> AlphaNutrition </a> <!-- Menu Items -->
+      <div class="hidden md:flex items-center space-x-1"><a href="https://nutrition.frobry.com/index.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> Accueil </a> <a href="https://nutrition.frobry.com/faq.html" class="px-5 py-2.5 text-white font-medium rounded-xl hover:bg-white hover:bg-opacity-10 transition-all duration-300 relative group"> <span class="relative z-10">FAQ</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div></a> <a href="https://nutrition.frobry.com/assistance.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> Assistance </a>
+      </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+       </svg></button>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 space-y-2"><a href="https://nutrition.frobry.com/index.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> Accueil </a> <a href="https://nutrition.frobry.com/faq.html" class="block px-5 py-3 text-white font-medium rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 transition-all"> FAQ </a> <a href="https://nutrition.frobry.com/assistance.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> Assistance </a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="hero-gradient min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden" style="padding-top: 180px; min-height: 60vh;"><!-- Decorative Elements -->
+    <div class="absolute top-20 right-20 w-96 h-96 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
+    <div class="max-w-6xl mx-auto text-center relative z-10 fade-in">
+     <h1 id="page-title" class="text-5xl md:text-7xl font-black mb-6 leading-tight hero-title-gradient">Questions Fréquentes</h1>
+     <p id="page-subtitle" class="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed font-light">Toutes les réponses à vos questions sur AlphaNutrition</p>
+    </div>
+   </section><!-- FAQ Section - Général -->
+   <section class="py-24 px-6" style="background-color: #0a0a0a;">
+    <div class="max-w-5xl mx-auto">
+     <h2 id="general-section-title" class="text-4xl md:text-5xl font-bold text-white mb-12 text-center gradient-text">Général</h2>
+     <div class="space-y-6">
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Qu'est-ce qu'AlphaNutrition ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">AlphaNutrition est une plateforme intelligente qui crée des plans nutritionnels personnalisés adaptés à ton corps, ton mode de vie et tes objectifs. Notre mission est de simplifier la nutrition et de la rendre accessible à tous.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Pour qui est AlphaNutrition ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">AlphaNutrition s'adresse à tous : débutants en nutrition, sportifs, personnes actives, ceux qui cherchent à améliorer leur santé, à perdre du poids, à prendre de la masse musculaire, ou simplement à optimiser leur alimentation quotidienne.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Quel est le prix d'AlphaNutrition ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">AlphaNutrition est disponible par abonnement à 19,99€ par mois. Si tu choisis l'abonnement annuel, le prix revient à seulement 9,99€ par mois, soit une économie de 50% ! L'abonnement te donne accès à toutes les fonctionnalités de la plateforme.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Comment commencer avec AlphaNutrition ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">C'est très simple ! Crée ton compte, choisis ton abonnement (mensuel à 19,99€ ou annuel à 9,99€/mois), puis complète ton profil (âge, poids, taille, niveau d'activité) et définis tes objectifs. Notre algorithme intelligent créera alors un plan nutritionnel personnalisé pour toi en quelques minutes.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Y a-t-il une période d'essai gratuite ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Non, AlphaNutrition ne propose pas de version d'essai gratuite. L'abonnement commence dès la création de ton compte. Nous sommes confiants dans la qualité de notre plateforme et proposons des tarifs accessibles pour que tu puisses transformer durablement ton alimentation.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- FAQ Section - Nutrition -->
+   <section class="py-24 px-6" style="background-color: #0f0f0f;">
+    <div class="max-w-5xl mx-auto">
+     <h2 id="nutrition-section-title" class="text-4xl md:text-5xl font-bold text-white mb-12 text-center gradient-text">Nutrition &amp; Plans</h2>
+     <div class="space-y-6">
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Comment mon plan nutritionnel est-il créé ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Ton plan est créé par notre algorithme intelligent basé sur des données scientifiques. Il prend en compte ton âge, poids, taille, niveau d'activité physique, objectifs personnels, et préférences alimentaires pour calculer précisément tes besoins caloriques et en macronutriments.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Est-ce que le plan s'adapte à mes préférences alimentaires ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Absolument ! Tu peux indiquer tes préférences (végétarien, végétalien, sans gluten, etc.), tes allergies, et les aliments que tu n'aimes pas. Le plan s'adapte automatiquement pour respecter tes choix tout en atteignant tes objectifs nutritionnels.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Puis-je modifier mon plan nutritionnel ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Oui ! Tu peux ajuster ton plan à tout moment en fonction de tes progrès, de tes envies ou de changements dans ta vie. L'algorithme recalcule automatiquement tes besoins et adapte les recommandations en conséquence.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Vais-je voir des résultats rapidement ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Les premiers changements (énergie, digestion) peuvent se faire sentir dès les premières semaines. Pour les objectifs de poids et de composition corporelle, nous privilégions une approche progressive et durable : des résultats visibles et sains apparaissent généralement après 4 à 8 semaines de suivi régulier.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Est-ce que je dois compter les calories ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Non, pas nécessairement ! AlphaNutrition te fournit des recommandations claires et des portions simples. Si tu veux un suivi plus précis, tu peux utiliser nos outils de tracking, mais notre approche vise à rendre la nutrition intuitive et facile à suivre sans obsession des chiffres.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- FAQ Section - Fonctionnalités -->
+   <section class="py-24 px-6" style="background-color: #0a0a0a;">
+    <div class="max-w-5xl mx-auto">
+     <h2 id="features-section-title" class="text-4xl md:text-5xl font-bold text-white mb-12 text-center gradient-text">Fonctionnalités</h2>
+     <div class="space-y-6">
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Quelles sont les fonctionnalités principales ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">AlphaNutrition offre : un plan nutritionnel personnalisé, un calculateur intelligent de besoins caloriques et macros, des recommandations alimentaires adaptées, un suivi de progression avec graphiques, des ajustements automatiques basés sur tes résultats, et une interface intuitive pour suivre ton évolution.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Puis-je suivre mes progrès dans l'application ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Oui ! Tu peux enregistrer ton poids, tes mensurations, ton niveau d'énergie, et visualiser ton évolution avec des graphiques clairs et motivants. Cela te permet de voir concrètement tes progrès et d'ajuster ta stratégie si nécessaire.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Y a-t-il une application mobile ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">AlphaNutrition est accessible depuis n'importe quel navigateur web sur mobile, tablette ou ordinateur. Une application mobile native est en cours de développement pour offrir une expérience encore plus optimisée.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Puis-je exporter mes données ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Oui, tu peux exporter tes données personnelles, ton plan nutritionnel et ton historique de progression à tout moment. Tes données t'appartiennent et tu gardes le contrôle total.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- FAQ Section - Compte & Support -->
+   <section class="py-24 px-6" style="background-color: #0f0f0f;">
+    <div class="max-w-5xl mx-auto">
+     <h2 id="account-section-title" class="text-4xl md:text-5xl font-bold text-white mb-12 text-center gradient-text">Compte &amp; Support</h2>
+     <div class="space-y-6">
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Mes données sont-elles sécurisées ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Absolument ! Nous prenons la sécurité de tes données très au sérieux. Toutes les informations sont cryptées et stockées en toute sécurité. Nous ne vendons jamais tes données à des tiers et respectons strictement la confidentialité.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Comment puis-je supprimer mon compte ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Tu peux supprimer ton compte à tout moment depuis les paramètres de ton profil ou en visitant notre page de suppression de compte. Toutes tes données seront définitivement effacées de nos serveurs.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">J'ai un problème, comment obtenir de l'aide ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Notre équipe support est là pour t'aider ! Tu peux nous contacter via la page Assistance, par email, ou directement depuis l'application. Nous répondons généralement sous 24 heures.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Puis-je annuler mon abonnement à tout moment ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">Oui, tu peux annuler ton abonnement à tout moment sans frais cachés. L'accès à AlphaNutrition reste actif jusqu'à la fin de la période payée (le mois ou l'année en cours), puis ton abonnement ne sera plus renouvelé automatiquement.</p>
+       </div>
+      </div>
+      <div class="tech-border-glow rounded-2xl faq-item">
+       <div class="p-6 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-white pr-4">Vous avez d'autres questions ?</h3><span class="faq-icon text-blue-400 text-2xl">▼</span>
+       </div>
+       <div class="faq-answer">
+        <p class="text-blue-100 leading-relaxed">N'hésite pas à nous contacter via la page Assistance ! Notre équipe se fera un plaisir de répondre à toutes tes questions et de t'accompagner dans ton parcours nutritionnel. 💙</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 px-6" style="background-color: #050505;">
+    <div class="max-w-6xl mx-auto text-center">
+     <div class="text-3xl font-bold gradient-text mb-4">
+      AlphaNutrition
+     </div>
+     <p class="text-slate-400 mb-6">La nutrition intelligente et personnalisée</p>
+     <div class="flex justify-center flex-wrap gap-x-8 gap-y-3 text-slate-400 text-sm"><a href="https://nutrition.frobry.com/faq.html" class="hover:text-blue-400 transition-colors">FAQ</a> <a href="https://nutrition.frobry.com/assistance.html" class="hover:text-blue-400 transition-colors">Assistance</a> <a href="https://nutrition.frobry.com/confidentialite.html" class="hover:text-blue-400 transition-colors">Confidentialité</a> <a href="https://nutrition.frobry.com/suppcompte.html" class="hover:text-blue-400 transition-colors">Suppression du compte</a>
+     </div>
+     <p class="text-slate-500 text-sm mt-8">© 2026 AlphaNutrition. Tous droits réservés.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+        const defaultConfig = {
+            background_color: "#000000",
+            surface_color: "#FFFFFF",
+            text_color: "#1E293B",
+            primary_action_color: "#3B82F6",
+            secondary_action_color: "#60A5FA",
+            font_family: "Inter",
+            font_size: 16,
+            page_title: "Questions Fréquentes",
+            page_subtitle: "Toutes les réponses à vos questions sur AlphaNutrition",
+            general_section_title: "Général",
+            nutrition_section_title: "Nutrition & Plans",
+            features_section_title: "Fonctionnalités",
+            account_section_title: "Compte & Support"
+        };
+
+        async function onConfigChange(config) {
+            const baseFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = `${baseFont}, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+            
+            document.body.style.fontFamily = baseFontStack;
+            document.body.style.fontSize = `${baseSize}px`;
+            
+            const heroSections = document.querySelectorAll('.hero-gradient');
+            heroSections.forEach(section => {
+                section.style.background = backgroundColor;
+            });
+            
+            const pageTitle = document.getElementById('page-title');
+            if (pageTitle) {
+                pageTitle.textContent = config.page_title || defaultConfig.page_title;
+                pageTitle.style.fontSize = `${baseSize * 3.5}px`;
+                pageTitle.style.background = `linear-gradient(90deg, 
+                    ${backgroundColor} 0%, 
+                    ${backgroundColor} 2%,
+                    ${secondaryActionColor} 20%, 
+                    ${primaryActionColor} 50%, 
+                    ${secondaryActionColor} 80%,
+                    ${backgroundColor} 98%, 
+                    ${backgroundColor} 100%)`;
+                pageTitle.style.webkitBackgroundClip = 'text';
+                pageTitle.style.webkitTextFillColor = 'transparent';
+                pageTitle.style.backgroundClip = 'text';
+            }
+            
+            const pageSubtitle = document.getElementById('page-subtitle');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+                pageSubtitle.style.fontSize = `${baseSize * 1.25}px`;
+            }
+            
+            const generalTitle = document.getElementById('general-section-title');
+            if (generalTitle) {
+                generalTitle.textContent = config.general_section_title || defaultConfig.general_section_title;
+                generalTitle.style.fontSize = `${baseSize * 2.5}px`;
+            }
+            
+            const nutritionTitle = document.getElementById('nutrition-section-title');
+            if (nutritionTitle) {
+                nutritionTitle.textContent = config.nutrition_section_title || defaultConfig.nutrition_section_title;
+                nutritionTitle.style.fontSize = `${baseSize * 2.5}px`;
+            }
+            
+            const featuresTitle = document.getElementById('features-section-title');
+            if (featuresTitle) {
+                featuresTitle.textContent = config.features_section_title || defaultConfig.features_section_title;
+                featuresTitle.style.fontSize = `${baseSize * 2.5}px`;
+            }
+            
+            const accountTitle = document.getElementById('account-section-title');
+            if (accountTitle) {
+                accountTitle.textContent = config.account_section_title || defaultConfig.account_section_title;
+                accountTitle.style.fontSize = `${baseSize * 2.5}px`;
+            }
+            
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(h3 => {
+                h3.style.fontSize = `${baseSize * 1.25}px`;
+            });
+        }
+
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const header = item.querySelector('.p-6');
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.faq-icon');
+            
+            header.addEventListener('click', () => {
+                const isActive = answer.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-icon').forEach(ic => {
+                    ic.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    answer.classList.add('active');
+                    icon.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Special menu toggle for mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const specialMenuItems = document.querySelectorAll('#special-menu .menu-item');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                document.body.classList.toggle('menu-toggled');
+            });
+        }
+
+        // Close special menu when clicking on a menu item
+        specialMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                document.body.classList.remove('menu-toggled');
+            });
+        });
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => {
+                                config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                            set: (value) => {
+                                config.primary_action_color = value;
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                            set: (value) => {
+                                config.secondary_action_color = value;
+                                window.elementSdk.setConfig({ secondary_action_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["page_title", config.page_title || defaultConfig.page_title],
+                    ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                    ["general_section_title", config.general_section_title || defaultConfig.general_section_title],
+                    ["nutrition_section_title", config.nutrition_section_title || defaultConfig.nutrition_section_title],
+                    ["features_section_title", config.features_section_title || defaultConfig.features_section_title],
+                    ["account_section_title", config.account_section_title || defaultConfig.account_section_title]
+                ])
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b7dd70823bdcfb5',t:'MTc2NzM5NDQ4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
