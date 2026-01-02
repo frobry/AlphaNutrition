@@ -1,371 +1,886 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="h-full">
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suppression de compte - AlphaNutrition</title>
+  <title>Suppression de Compte - AlphaNutrition</title>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-    body {
-      box-sizing: border-box;
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
-    
-    .gradient-bg {
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-      position: relative;
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .gradient-bg::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.045) 0%, transparent 50%);
-      animation: floatGradient 20s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    @keyframes floatGradient {
-      0%, 100% { 
-        transform: translate(0px, 0px) scale(1);
-        opacity: 1;
-      }
-      25% { 
-        transform: translate(30px, -30px) scale(1.05);
-        opacity: 0.8;
-      }
-      50% { 
-        transform: translate(-20px, 20px) scale(0.95);
-        opacity: 1;
-      }
-      75% { 
-        transform: translate(20px, 30px) scale(1.02);
-        opacity: 0.9;
-      }
-    }
-    
-    .content-wrapper {
-      position: relative;
-      z-index: 10;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .main-content {
-      flex: 1;
-      padding-top: 120px;
-      padding-bottom: 60px;
-    }
-    
-    .info-card {
-      margin-bottom: 30px;
-      padding: 30px;
-      background: rgba(26, 26, 26, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .info-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
-    }
-    
-    .warning-card {
-      background: rgba(220, 38, 38, 0.1);
-      border: 1px solid rgba(220, 38, 38, 0.3);
-    }
-    
-    .info-card h2 {
-      color: #9ca3af;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-    
-    .info-card p, .info-card li {
-      color: #e5e7eb;
-      line-height: 1.8;
-      margin-bottom: 10px;
-    }
-    
-    .info-card ul {
-      list-style-type: disc;
-      margin-left: 25px;
-      margin-top: 10px;
-    }
-    
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: #4b5563;
-      color: white;
-      border-radius: 50%;
-      font-weight: bold;
-      margin-right: 12px;
-    }
-  </style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-title-gradient {
+            background: linear-gradient(90deg, 
+                rgba(0, 0, 0, 1) 0%, 
+                rgba(0, 0, 0, 1) 2%,
+                #60A5FA 20%, 
+                #3B82F6 50%, 
+                #60A5FA 80%,
+                rgba(0, 0, 0, 1) 98%, 
+                rgba(0, 0, 0, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tech-border-glow {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            box-shadow: 0 0 35px rgba(59, 130, 246, 0.12), inset 0 0 25px rgba(59, 130, 246, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-border-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid rgba(239, 68, 68, 0.4);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3B82F6;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .success-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 2px solid rgba(34, 197, 94, 0.4);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-gradient {
+            background: #000000;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            color: white;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .content-section h3 {
+            color: #93C5FD;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            color: #CBD5E1;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.0625rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul li {
+            color: #CBD5E1;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1.0625rem;
+        }
+
+        .content-section ul li::before {
+            content: "•";
+            color: #60A5FA;
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0.5rem;
+            top: -0.125rem;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+            margin: 3rem 0;
+        }
+
+        .step-card {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #3B82F6, #60A5FA);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: #94A3B8;
+            margin: 0;
+        }
+
+        /* Special Menu Styles */
+        :root {
+            --menu-background-light: rgb(37, 99, 235);
+            --menu-background-dark: rgb(0, 0, 0);
+            
+            --menu-gradient-color-1: rgb(30, 58, 138);
+            --menu-gradient-color-2: rgb(59, 130, 246);
+            --menu-gradient-color-3: rgb(29, 78, 216);
+            --menu-gradient-color-4: rgb(30, 64, 175);
+        }
+
+        @keyframes arc-rotation {
+            from {
+                transform: translate3d(-50%, -50%, 0px) rotate(0deg);
+            }
+            
+            to {
+                transform: translate3d(-50%, -50%, 0px) rotate(360deg);
+            }
+        }
+
+        body.menu-toggled > #special-menu {
+            pointer-events: all; 
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:first-of-type {
+            transform: translate3d(0px, 9px, 0px) rotate(45deg);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:nth-of-type(2) {
+            opacity: 0;
+            transform: translate3d(-5px, 0px, 0px);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-icon > span:nth-of-type(3) {
+            transform: translate3d(0px, -9px, 0px) rotate(-45deg);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-label > .word {
+            opacity: 0;
+            transform: translate3d(-30%, 0px, 0px) skew(20deg) scaleX(1.2);  
+            transition: opacity 250ms cubic-bezier(.71, .19, .87, .33), 
+                transform 250ms cubic-bezier(.71, .19, .87, .33);
+        }
+
+        body.menu-toggled > #special-menu > #menu-toggle > #menu-toggle-label > .word:nth-of-type(2) {
+            transition-delay: 100ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-gradient {
+            height: 200vmax;
+            opacity: 1;
+            transform: translate3d(-50%, -50%, 0px);
+            transition: height 600ms cubic-bezier(.58, .2, .62, .93), 
+                width 600ms cubic-bezier(.58, .2, .62, .93), 
+                transform 600ms cubic-bezier(.58, .2, .62, .93), 
+                opacity 400ms;
+            width: 200vmax;
+        }
+
+        body.menu-toggled > #special-menu > #menu-gradient-blur {
+            opacity: 1; 
+        }
+
+        body.menu-toggled > #special-menu > #menu-arcs-wrapper {
+            opacity: 1;
+            transform: scale(1);
+            transition: transform 600ms cubic-bezier(.16, .68, .25, .83), 
+                opacity 600ms cubic-bezier(.87, .12, .92, .39); 
+        }
+
+        body.menu-toggled > #special-menu > #menu-items {
+            opacity: 1;
+            pointer-events: all;
+            transform: translate3d(0px, 0px, 0px);
+            transition: opacity 600ms 200ms, transform 600ms 200ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item {
+            opacity: 1;
+            transform: translate3d(0px, 0px, 0px);
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(1) {
+            transition: opacity 600ms 300ms, transform 600ms 300ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(2) {
+            transition: opacity 600ms 350ms, transform 600ms 350ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(3) {
+            transition: opacity 600ms 400ms, transform 600ms 400ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(4) {
+            transition: opacity 600ms 450ms, transform 600ms 450ms;
+        }
+
+        body.menu-toggled > #special-menu > #menu-items > .menu-item:nth-of-type(5) {
+            transition: opacity 600ms 500ms, transform 600ms 500ms;
+        }
+
+        #special-menu {
+            height: 100%;
+            left: 0;
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+        }
+
+        #menu-toggle {
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            gap: 12px;
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            z-index: 2;
+        }
+
+        #menu-toggle-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            height: 24px;
+            justify-content: center;
+            width: 30px;
+        }
+
+        #menu-toggle-icon > span {
+            background-color: white;
+            border-radius: 2px;
+            height: 3px;
+            transition: opacity 400ms, transform 400ms;
+            width: 100%;
+        }
+
+        #menu-toggle-label {
+            display: flex;
+            gap: 4px;
+            overflow: hidden;
+        }
+
+        #menu-toggle-label > .word {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 400ms 200ms, transform 400ms 200ms;
+        }
+
+        #menu-toggle-label > .word:nth-of-type(2) {
+            transition-delay: 300ms;
+        }
+
+        #menu-gradient {
+            background: radial-gradient(
+                circle at center, 
+                var(--menu-gradient-color-1) 0%, 
+                var(--menu-gradient-color-2) 25%, 
+                var(--menu-gradient-color-3) 50%, 
+                var(--menu-gradient-color-4) 75%, 
+                var(--menu-background-dark) 100%
+            );
+            height: 0vmax;
+            left: 50%;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px) scale(0.5);
+            transition: height 600ms cubic-bezier(.58, .2, .62, .93), 
+                width 600ms cubic-bezier(.58, .2, .62, .93), 
+                transform 600ms cubic-bezier(.58, .2, .62, .93), 
+                opacity 600ms 200ms;
+            width: 0vmax;
+            z-index: -1;
+        }
+
+        #menu-gradient-blur {
+            backdrop-filter: blur(10px);
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transition: opacity 600ms;
+            width: 100%;
+            z-index: -1;
+        }
+
+        #menu-arcs-wrapper {
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: scale(0.8);
+            transition: transform 600ms 200ms, opacity 600ms;
+            width: 100%;
+            z-index: 1;
+        }
+
+        #menu-arcs {
+            animation: arc-rotation 20s linear infinite;
+            height: 150vmax;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px);
+            width: 150vmax;
+        }
+
+        .menu-arc {
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            border-radius: 50%;
+            height: 100%;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0px);
+            width: 100%;
+        }
+
+        .menu-arc:nth-of-type(2) {
+            height: 75%;
+            width: 75%;
+        }
+
+        .menu-arc:nth-of-type(3) {
+            height: 50%;
+            width: 50%;
+        }
+
+        #menu-items {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            height: 100%;
+            justify-content: center;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: translate3d(0px, -30px, 0px);
+            transition: opacity 400ms, transform 400ms;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .menu-item {
+            color: white;
+            cursor: pointer;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            opacity: 0;
+            text-transform: uppercase;
+            transform: translate3d(0px, 20px, 0px);
+            transition: color 300ms, opacity 400ms, transform 400ms;
+        }
+
+        .menu-item:hover {
+            color: rgb(96, 165, 250);
+        }
+
+        /* Hide special menu on desktop */
+        @media (min-width: 768px) {
+            #special-menu {
+                display: none;
+            }
+        }
+    </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="gradient-bg text-white"><!-- Header avec navigation -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800">
-   <nav class="max-w-6xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between"><!-- Logo -->
-     <div class="text-2xl font-bold text-white">
+ <body class="h-full overflow-auto">
+  <div id="app-wrapper" class="w-full h-full"><!-- Special Mobile Menu -->
+   <div id="special-menu">
+    <div id="menu-toggle">
+     <div id="menu-toggle-label"><span class="word">Menu</span>
+     </div>
+     <div id="menu-toggle-icon"><span></span> <span></span> <span></span>
+     </div>
+    </div>
+    <div id="menu-gradient"></div>
+    <div id="menu-gradient-blur"></div>
+    <div id="menu-arcs-wrapper">
+     <div id="menu-arcs">
+      <div class="menu-arc"></div>
+      <div class="menu-arc"></div>
+      <div class="menu-arc"></div>
+     </div>
+    </div>
+    <div id="menu-items"><a href="https://nutrition.frobry.com/index.html" class="menu-item">Accueil</a> <a href="https://nutrition.frobry.com/faq.html" class="menu-item">FAQ</a> <a href="https://nutrition.frobry.com/assistance.html" class="menu-item">Assistance</a> <a href="https://nutrition.frobry.com/confidentialite.html" class="menu-item" style="font-size: 32px;">Confidentialité</a> <a href="https://nutrition.frobry.com/suppcompte.html" class="menu-item" style="font-size: 32px;">Suppression</a>
+    </div>
+   </div><!-- Navigation Menu -->
+   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-xl bg-black bg-opacity-40 shadow-2xl" style="box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15);">
+    <div class="max-w-7xl mx-auto px-6 py-5">
+     <div class="flex items-center justify-between"><!-- Logo --> <a href="https://nutrition.frobry.com/index.html" class="text-2xl font-black gradient-text hover:opacity-80 transition-opacity"> AlphaNutrition </a> <!-- Menu Items -->
+      <div class="hidden md:flex items-center space-x-1"><a href="https://nutrition.frobry.com/index.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> Accueil </a> <a href="https://nutrition.frobry.com/faq.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> FAQ </a> <a href="https://nutrition.frobry.com/assistance.html" class="px-5 py-2.5 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all duration-300"> Assistance </a>
+      </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+       </svg></button>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 space-y-2"><a href="https://nutrition.frobry.com/index.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> Accueil </a> <a href="https://nutrition.frobry.com/faq.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> FAQ </a> <a href="https://nutrition.frobry.com/assistance.html" class="block px-5 py-3 text-blue-100 font-medium rounded-xl hover:bg-white hover:bg-opacity-10 hover:text-white transition-all"> Assistance </a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="hero-gradient min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden" style="padding-top: 180px; min-height: 50vh;"><!-- Decorative Elements -->
+    <div class="absolute top-20 right-20 w-96 h-96 bg-red-500 rounded-full opacity-10 blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-red-400 rounded-full opacity-10 blur-3xl"></div>
+    <div class="max-w-6xl mx-auto text-center relative z-10 fade-in">
+     <h1 id="page-title" class="text-5xl md:text-7xl font-black mb-6 leading-tight hero-title-gradient">Suppression de Compte</h1>
+     <p id="page-subtitle" class="text-xl md:text-2xl text-blue-100 mb-4 max-w-4xl mx-auto leading-relaxed font-light">Nous sommes désolés de vous voir partir</p>
+    </div>
+   </section><!-- Content Section -->
+   <section class="py-24 px-6" style="background-color: #0a0a0a;">
+    <div class="max-w-4xl mx-auto"><!-- Introduction -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <p>Cette page vous explique comment supprimer définitivement votre compte AlphaNutrition et toutes vos données personnelles.</p>
+      </div>
+     </div><!-- Warning Box -->
+     <div class="warning-box fade-in">
+      <div class="flex items-start gap-4">
+       <svg class="w-8 h-8 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+       </svg>
+       <div>
+        <h3 class="text-red-400 text-xl font-bold mb-3">⚠️ Attention : Action irréversible</h3>
+        <p class="text-red-200 mb-3">La suppression de votre compte est définitive et irréversible. Une fois votre compte supprimé, vous ne pourrez plus :</p>
+        <ul class="space-y-2">
+         <li class="text-red-200 flex items-start gap-2"><span class="text-red-400 mt-1">•</span> <span>Accéder à vos plans alimentaires personnalisés</span></li>
+         <li class="text-red-200 flex items-start gap-2"><span class="text-red-400 mt-1">•</span> <span>Consulter votre historique de repas et de progression</span></li>
+         <li class="text-red-200 flex items-start gap-2"><span class="text-red-400 mt-1">•</span> <span>Récupérer vos données nutritionnelles</span></li>
+         <li class="text-red-200 flex items-start gap-2"><span class="text-red-400 mt-1">•</span> <span>Utiliser votre abonnement en cours</span></li>
+        </ul>
+        <p class="text-red-200 font-semibold mt-4">Veuillez réfléchir attentivement avant de procéder à cette demande.</p>
+       </div>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Deletion Methods -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2 id="deletion-method-title">
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg> Comment supprimer votre compte</h2><!-- App deletion method -->
+       <div class="success-box">
+        <div class="flex items-start gap-4">
+         <svg class="w-8 h-8 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+         </svg>
+         <div>
+          <h3 class="text-green-400 text-xl font-bold mb-3">📱 Méthode 1 : Depuis l'application (recommandé)</h3>
+          <p class="text-green-200 mb-3 font-semibold">Vous pouvez supprimer votre compte directement depuis l'application AlphaNutrition en quelques clics :</p>
+          <ol class="space-y-3 text-green-100">
+           <li class="flex items-start gap-2"><span class="text-green-400 font-bold mt-1">1.</span> <span>Ouvrez l'application AlphaNutrition</span></li>
+           <li class="flex items-start gap-2"><span class="text-green-400 font-bold mt-1">2.</span> <span>Accédez à votre Profil (icône en bas à droite)</span></li>
+           <li class="flex items-start gap-2"><span class="text-green-400 font-bold mt-1">3.</span> <span>Appuyez sur "Paramètres" (icône engrenage)</span></li>
+           <li class="flex items-start gap-2"><span class="text-green-400 font-bold mt-1">4.</span> <span>Faites défiler jusqu'à "Supprimer mon compte"</span></li>
+           <li class="flex items-start gap-2"><span class="text-green-400 font-bold mt-1">5.</span> <span>Confirmez votre décision</span></li>
+          </ol>
+          <p class="text-green-200 mt-4 font-medium">✅ Vos données seront supprimées immédiatement et de manière irréversible.</p>
+         </div>
+        </div>
+       </div>
+       <h3 class="mt-8">📧 Méthode 2 : Par email</h3>
+       <p>Si vous préférez ou si vous n'avez plus accès à l'application, vous pouvez nous contacter par email :</p>
+       <div class="info-box">
+        <p class="text-blue-300 font-semibold text-lg" id="email-contact"><a href="mailto:app.alphagym@gmail.com" class="hover:text-blue-200 transition-colors">app.alphagym@gmail.com</a></p>
+       </div>
+       <p class="font-semibold text-white">Objet de l'email : "Demande de suppression de compte"</p>
+       <h3>Informations à inclure dans votre email :</h3>
+       <ul>
+        <li>Votre adresse email associée au compte</li>
+        <li>Votre nom complet (tel qu'enregistré dans l'application)</li>
+        <li>La confirmation que vous souhaitez supprimer définitivement votre compte</li>
+       </ul>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Process Timeline -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg> ⏱️ Délai de traitement (pour suppression par email)</h2>
+       <p>Votre demande sera traitée dans un délai maximum de <strong style="color: white;">7 jours ouvrés</strong> à compter de la réception de votre email.</p>
+       <h3 class="mt-6 mb-4">Étapes du processus :</h3>
+       <div class="step-card">
+        <div class="step-number">
+         1
+        </div>
+        <div class="step-content">
+         <h4>Réception de votre demande</h4>
+         <p>Nous recevons votre email et vérifions votre identité</p>
+        </div>
+       </div>
+       <div class="step-card">
+        <div class="step-number">
+         2
+        </div>
+        <div class="step-content">
+         <h4>Confirmation par email</h4>
+         <p>Nous vous envoyons un email de confirmation pour valider votre demande</p>
+        </div>
+       </div>
+       <div class="step-card">
+        <div class="step-number">
+         3
+        </div>
+        <div class="step-content">
+         <h4>Suppression des données</h4>
+         <p>Nous procédons à la suppression définitive de votre compte et de vos données</p>
+        </div>
+       </div>
+       <div class="step-card">
+        <div class="step-number">
+         4
+        </div>
+        <div class="step-content">
+         <h4>Notification finale</h4>
+         <p>Nous vous envoyons un email confirmant la suppression complète</p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Data Deletion -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg> 🗂️ Données qui seront supprimées</h2>
+       <p>Lors de la suppression de votre compte, les données suivantes seront définitivement effacées :</p>
+       <ul>
+        <li>Vos informations de profil (nom, email, date de naissance, etc.)</li>
+        <li>Vos données de santé (poids, taille, objectifs, allergies, etc.)</li>
+        <li>Votre historique de repas et photos de plats</li>
+        <li>Vos plans alimentaires personnalisés</li>
+        <li>Vos statistiques et données de progression</li>
+        <li>Vos préférences et paramètres d'application</li>
+        <li>Votre historique de conversations avec le chat IA</li>
+        <li>Tous les produits scannés et enregistrés</li>
+       </ul>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Legal Data Retention -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg> 📋 Données conservées (obligations légales)</h2>
+       <p>Conformément aux obligations légales et comptables, certaines données peuvent être conservées pendant une durée limitée :</p>
+       <ul>
+        <li><strong style="color: white;">Données de facturation :</strong> conservées pendant 10 ans (obligation légale française)</li>
+        <li><strong style="color: white;">Données de transaction :</strong> conservées pour la prévention de la fraude et le respect des obligations fiscales</li>
+        <li><strong style="color: white;">Logs de sécurité :</strong> conservés pendant 1 an maximum pour des raisons de sécurité</li>
+       </ul>
+       <p class="text-slate-400 text-sm mt-4">Ces données sont stockées de manière sécurisée et ne sont accessibles qu'au personnel autorisé dans le cadre strict de leurs obligations légales.</p>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Consequences -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg> 💡 Conséquences de la suppression</h2>
+       <ul>
+        <li><strong style="color: white;">Abonnement :</strong> Si vous avez un abonnement actif, il sera immédiatement résilié sans remboursement au prorata</li>
+        <li><strong style="color: white;">Recréation de compte :</strong> Vous pourrez créer un nouveau compte à tout moment, mais vous repartirez de zéro (aucune donnée ne sera récupérée)</li>
+        <li><strong style="color: white;">Emails :</strong> Vous ne recevrez plus aucune communication de notre part (sauf emails liés à la suppression)</li>
+       </ul>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Alternatives -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 mb-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg> 🤔 Vous hésitez ?</h2>
+       <p>Si vous souhaitez simplement faire une pause, vous pouvez :</p>
+       <ul>
+        <li>Désactiver les notifications dans les paramètres de l'application</li>
+        <li>Résilier votre abonnement tout en conservant votre compte gratuit</li>
+        <li>Nous contacter pour discuter de vos préoccupations</li>
+       </ul>
+       <p class="text-white font-semibold">Notre équipe est à votre écoute : <a href="mailto:app.alphagym@gmail.com" class="text-blue-400 hover:text-blue-300 transition-colors">app.alphagym@gmail.com</a></p>
+      </div>
+     </div>
+     <div class="divider"></div><!-- Contact -->
+     <div class="tech-border-glow rounded-2xl p-8 md:p-12 fade-in">
+      <div class="content-section">
+       <h2>
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg> 📞 Besoin d'aide ?</h2>
+       <p>Si vous avez des questions concernant la suppression de votre compte ou si vous rencontrez des difficultés, n'hésitez pas à nous contacter :</p>
+       <div class="info-box">
+        <p class="text-blue-300 font-semibold text-lg">Email : <a href="mailto:app.alphagym@gmail.com" class="hover:text-blue-200 transition-colors">app.alphagym@gmail.com</a></p>
+        <p class="text-blue-200 mt-2">Délai de réponse : 24 à 48 heures</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 px-6" style="background-color: #050505;">
+    <div class="max-w-6xl mx-auto text-center">
+     <div class="text-3xl font-bold gradient-text mb-4">
       AlphaNutrition
-     </div><!-- Menu desktop -->
-     <div class="hidden md:flex space-x-8"><a href="/index.html" class="text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="/index.html#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="/index.html#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="/index.html#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
-     </div><!-- Menu burger mobile --> <button id="menu-toggle" class="md:hidden text-white">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg></button>
-    </div><!-- Menu mobile -->
-    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700">
-     <div class="flex flex-col space-y-4 pt-4"><a href="/index.html" class="text-gray-300 hover:text-white transition-colors">Accueil</a> <a href="/index.html#benefices" class="text-gray-300 hover:text-white transition-colors">Bénéfices</a> <a href="/index.html#fonctionnalites" class="text-gray-300 hover:text-white transition-colors">Fonctionnalités</a> <a href="/index.html#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a> <a href="/assistance.html" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Assistance</a>
      </div>
-    </div>
-   </nav>
-  </header>
-  <div class="content-wrapper"><!-- Main Content -->
-   <main class="main-content px-6">
-    <div class="max-w-4xl mx-auto"><!-- En-tête -->
-     <div class="text-center mb-12">
-      <div class="text-6xl mb-6">
-       🗑️
-      </div>
-      <h1 id="page-title" class="text-5xl font-bold mb-4">Suppression de compte</h1>
-      <p id="intro-text" class="text-gray-300 text-lg max-w-2xl mx-auto">Nous sommes désolés de vous voir partir. Cette page vous explique comment supprimer définitivement votre compte AlphaNutrition et toutes vos données personnelles.</p>
-     </div><!-- Avertissement -->
-     <div class="info-card warning-card">
-      <h2 class="text-red-400">⚠️ Attention : Action irréversible</h2>
-      <p>La suppression de votre compte est <strong>définitive et irréversible</strong>. Une fois votre compte supprimé, vous ne pourrez plus :</p>
-      <ul>
-       <li>Accéder à vos plans alimentaires personnalisés</li>
-       <li>Consulter votre historique de repas et de progression</li>
-       <li>Récupérer vos données nutritionnelles</li>
-       <li>Utiliser votre abonnement en cours</li>
-      </ul>
-      <p class="mt-4"><strong>Veuillez réfléchir attentivement avant de procéder à cette demande.</strong></p>
-     </div><!-- Comment faire la demande -->
-     <div class="info-card">
-      <h2>📧 Comment demander la suppression de votre compte</h2>
-      <p id="email-instruction">Pour supprimer votre compte, envoyez-nous un email à l'adresse suivante :</p>
-      <div class="text-center my-6"><a href="mailto:app.alphagym@gmail.com?subject=Demande de suppression de compte" class="text-2xl font-semibold text-gray-100 hover:text-white transition-colors inline-block"> app.alphagym@gmail.com </a>
-      </div>
-      <p><strong>Objet de l'email :</strong> "Demande de suppression de compte"</p>
-      <p class="mt-4"><strong>Informations à inclure dans votre email :</strong></p>
-      <ul>
-       <li>Votre adresse email associée au compte</li>
-       <li>Votre nom complet (tel qu'enregistré dans l'application)</li>
-       <li>La confirmation que vous souhaitez supprimer définitivement votre compte</li>
-      </ul>
-     </div><!-- Processus de traitement -->
-     <div class="info-card">
-      <h2>⏱️ Délai de traitement</h2>
-      <p id="processing-time">Votre demande sera traitée dans un délai maximum de <strong>7 jours ouvrés</strong> à compter de la réception de votre email.</p>
-      <p class="mt-4"><strong>Étapes du processus :</strong></p>
-      <div class="mt-4 space-y-4">
-       <div class="flex items-start"><span class="step-number">1</span>
-        <div>
-         <p><strong>Réception de votre demande</strong></p>
-         <p class="text-gray-400">Nous recevons votre email et vérifions votre identité</p>
-        </div>
-       </div>
-       <div class="flex items-start"><span class="step-number">2</span>
-        <div>
-         <p><strong>Confirmation par email</strong></p>
-         <p class="text-gray-400">Nous vous envoyons un email de confirmation pour valider votre demande</p>
-        </div>
-       </div>
-       <div class="flex items-start"><span class="step-number">3</span>
-        <div>
-         <p><strong>Suppression des données</strong></p>
-         <p class="text-gray-400">Nous procédons à la suppression définitive de votre compte et de vos données</p>
-        </div>
-       </div>
-       <div class="flex items-start"><span class="step-number">4</span>
-        <div>
-         <p><strong>Notification finale</strong></p>
-         <p class="text-gray-400">Nous vous envoyons un email confirmant la suppression complète</p>
-        </div>
-       </div>
-      </div>
-     </div><!-- Données supprimées -->
-     <div class="info-card">
-      <h2>🗂️ Données qui seront supprimées</h2>
-      <p>Lors de la suppression de votre compte, les données suivantes seront <strong>définitivement effacées</strong> :</p>
-      <ul>
-       <li>Vos informations de profil (nom, email, date de naissance, etc.)</li>
-       <li>Vos données de santé (poids, taille, objectifs, allergies, etc.)</li>
-       <li>Votre historique de repas et photos de plats</li>
-       <li>Vos plans alimentaires personnalisés</li>
-       <li>Vos statistiques et données de progression</li>
-       <li>Vos préférences et paramètres d'application</li>
-       <li>Votre historique de conversations avec le chat IA</li>
-       <li>Tous les produits scannés et enregistrés</li>
-      </ul>
-     </div><!-- Données conservées -->
-     <div class="info-card">
-      <h2>📋 Données conservées (obligations légales)</h2>
-      <p>Conformément aux obligations légales et comptables, certaines données peuvent être conservées pendant une durée limitée :</p>
-      <ul>
-       <li><strong>Données de facturation :</strong> conservées pendant 10 ans (obligation légale française)</li>
-       <li><strong>Données de transaction :</strong> conservées pour la prévention de la fraude et le respect des obligations fiscales</li>
-       <li><strong>Logs de sécurité :</strong> conservés pendant 1 an maximum pour des raisons de sécurité</li>
-      </ul>
-      <p class="mt-4">Ces données sont stockées de manière sécurisée et ne sont accessibles qu'au personnel autorisé dans le cadre strict de leurs obligations légales.</p>
-     </div><!-- Conséquences -->
-     <div class="info-card">
-      <h2>💡 Conséquences de la suppression</h2>
-      <ul>
-       <li><strong>Abonnement :</strong> Si vous avez un abonnement actif, il sera immédiatement résilié sans remboursement au prorata</li>
-       <li><strong>Recréation de compte :</strong> Vous pourrez créer un nouveau compte à tout moment, mais vous repartirez de zéro (aucune donnée ne sera récupérée)</li>
-       <li><strong>Emails :</strong> Vous ne recevrez plus aucune communication de notre part (sauf emails liés à la suppression)</li>
-      </ul>
-     </div><!-- Alternative -->
-     <div class="info-card">
-      <h2>🤔 Vous hésitez ?</h2>
-      <p>Si vous souhaitez simplement faire une pause, vous pouvez :</p>
-      <ul>
-       <li><strong>Désactiver les notifications</strong> dans les paramètres de l'application</li>
-       <li><strong>Résilier votre abonnement</strong> tout en conservant votre compte gratuit</li>
-       <li><strong>Nous contacter</strong> pour discuter de vos préoccupations</li>
-      </ul>
-      <p class="mt-4">Notre équipe est à votre écoute : <a href="mailto:app.alphagym@gmail.com" class="text-gray-300 hover:text-white underline">app.alphagym@gmail.com</a></p>
-     </div><!-- Contact -->
-     <div class="info-card">
-      <h2>📞 Besoin d'aide ?</h2>
-      <p>Si vous avez des questions concernant la suppression de votre compte ou si vous rencontrez des difficultés, n'hésitez pas à nous contacter :</p>
-      <div class="mt-4">
-       <p><strong>Email :</strong> <a href="mailto:app.alphagym@gmail.com" class="text-gray-300 hover:text-white underline">app.alphagym@gmail.com</a></p>
-       <p><strong>Délai de réponse :</strong> 24 à 48 heures</p>
-      </div>
+     <p class="text-slate-400 mb-6">La nutrition intelligente et personnalisée</p>
+     <div class="flex justify-center flex-wrap gap-x-8 gap-y-3 text-slate-400 text-sm"><a href="https://nutrition.frobry.com/faq.html" class="hover:text-blue-400 transition-colors">FAQ</a> <a href="https://nutrition.frobry.com/assistance.html" class="hover:text-blue-400 transition-colors">Assistance</a> <a href="https://nutrition.frobry.com/confidentialite.html" class="hover:text-blue-400 transition-colors">Confidentialité</a> <a href="https://nutrition.frobry.com/suppcompte.html" class="hover:text-blue-400 transition-colors">Suppression du compte</a>
      </div>
+     <p class="text-slate-500 text-sm mt-8">© 2026 AlphaNutrition. Tous droits réservés.</p>
     </div>
-   </main><!-- Footer -->
-   <footer class="px-6 py-8 text-center text-gray-500 text-sm border-t border-gray-800">
-    <p>© 2025 AlphaNutrition. Tous droits réservés.</p>
-    <p class="mt-4"><a href="/confidentialite.html" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors underline">Confidentialité de l'application</a></p>
    </footer>
   </div>
   <script>
-    const defaultConfig = {
-      page_title: "Suppression de compte",
-      intro_text: "Nous sommes désolés de vous voir partir. Cette page vous explique comment supprimer définitivement votre compte AlphaNutrition et toutes vos données personnelles.",
-      email_instruction: "Pour supprimer votre compte, envoyez-nous un email à l'adresse suivante :",
-      processing_time: "Votre demande sera traitée dans un délai maximum de 7 jours ouvrés à compter de la réception de votre email.",
-      background_color: "#0a0a0a",
-      surface_color: "#1a1a1a",
-      text_color: "#ffffff"
-    };
+        const defaultConfig = {
+            background_color: "#000000",
+            surface_color: "#FFFFFF",
+            text_color: "#1E293B",
+            primary_action_color: "#3B82F6",
+            secondary_action_color: "#60A5FA",
+            font_family: "Inter",
+            font_size: 16,
+            page_title: "Suppression de Compte",
+            page_subtitle: "Nous sommes désolés de vous voir partir",
+            deletion_method_title: "Comment supprimer votre compte",
+            email_contact: "app.alphagym@gmail.com"
+        };
 
-    async function onConfigChange(config) {
-      document.getElementById('page-title').textContent = config.page_title || defaultConfig.page_title;
-      document.getElementById('intro-text').textContent = config.intro_text || defaultConfig.intro_text;
-      document.getElementById('email-instruction').textContent = config.email_instruction || defaultConfig.email_instruction;
-      document.getElementById('processing-time').innerHTML = config.processing_time || defaultConfig.processing_time;
-
-      const backgroundColor = config.background_color || defaultConfig.background_color;
-      const surfaceColor = config.surface_color || defaultConfig.surface_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-
-      document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${surfaceColor} 100%)`;
-      document.body.style.color = textColor;
-    }
-
-    function mapToCapabilities(config) {
-      return {
-        recolorables: [
-          {
-            get: () => config.background_color || defaultConfig.background_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.background_color = value;
-                window.elementSdk.setConfig({ background_color: value });
-              }
+        async function onConfigChange(config) {
+            const baseFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = `${baseFont}, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+            
+            document.body.style.fontFamily = baseFontStack;
+            document.body.style.fontSize = `${baseSize}px`;
+            
+            const heroSections = document.querySelectorAll('.hero-gradient');
+            heroSections.forEach(section => {
+                section.style.background = backgroundColor;
+            });
+            
+            const pageTitle = document.getElementById('page-title');
+            if (pageTitle) {
+                pageTitle.textContent = config.page_title || defaultConfig.page_title;
+                pageTitle.style.fontSize = `${baseSize * 3.5}px`;
+                pageTitle.style.background = `linear-gradient(90deg, 
+                    ${backgroundColor} 0%, 
+                    ${backgroundColor} 2%,
+                    ${secondaryActionColor} 20%, 
+                    ${primaryActionColor} 50%, 
+                    ${secondaryActionColor} 80%,
+                    ${backgroundColor} 98%, 
+                    ${backgroundColor} 100%)`;
+                pageTitle.style.webkitBackgroundClip = 'text';
+                pageTitle.style.webkitTextFillColor = 'transparent';
+                pageTitle.style.backgroundClip = 'text';
             }
-          },
-          {
-            get: () => config.surface_color || defaultConfig.surface_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.surface_color = value;
-                window.elementSdk.setConfig({ surface_color: value });
-              }
+            
+            const pageSubtitle = document.getElementById('page-subtitle');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+                pageSubtitle.style.fontSize = `${baseSize * 1.25}px`;
             }
-          },
-          {
-            get: () => config.text_color || defaultConfig.text_color,
-            set: (value) => {
-              if (window.elementSdk) {
-                window.elementSdk.config.text_color = value;
-                window.elementSdk.setConfig({ text_color: value });
-              }
+
+            const deletionMethodTitle = document.getElementById('deletion-method-title');
+            if (deletionMethodTitle) {
+                const iconHTML = deletionMethodTitle.querySelector('svg').outerHTML;
+                deletionMethodTitle.innerHTML = iconHTML + (config.deletion_method_title || defaultConfig.deletion_method_title);
             }
-          }
-        ],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      };
-    }
 
-    function mapToEditPanelValues(config) {
-      return new Map([
-        ["page_title", config.page_title || defaultConfig.page_title],
-        ["intro_text", config.intro_text || defaultConfig.intro_text],
-        ["email_instruction", config.email_instruction || defaultConfig.email_instruction],
-        ["processing_time", config.processing_time || defaultConfig.processing_time]
-      ]);
-    }
+            const emailContact = document.getElementById('email-contact');
+            if (emailContact) {
+                const email = config.email_contact || defaultConfig.email_contact;
+                emailContact.innerHTML = `<a href="mailto:${email}" class="hover:text-blue-200 transition-colors">${email}</a>`;
+            }
+        }
 
-    // Menu burger toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-    // Initialiser le SDK
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a40b7700083698a',t:'MTc2NDA2OTIwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        // Special menu toggle for mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const specialMenuItems = document.querySelectorAll('#special-menu .menu-item');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                document.body.classList.toggle('menu-toggled');
+            });
+        }
+
+        // Close special menu when clicking on a menu item
+        specialMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                document.body.classList.remove('menu-toggled');
+            });
+        });
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => {
+                                config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                            set: (value) => {
+                                config.primary_action_color = value;
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                            set: (value) => {
+                                config.secondary_action_color = value;
+                                window.elementSdk.setConfig({ secondary_action_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["page_title", config.page_title || defaultConfig.page_title],
+                    ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                    ["deletion_method_title", config.deletion_method_title || defaultConfig.deletion_method_title],
+                    ["email_contact", config.email_contact || defaultConfig.email_contact]
+                ])
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b7dfa2b433bcfb5',t:'MTc2NzM5NTkyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
